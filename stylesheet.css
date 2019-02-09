@@ -1,7 +1,5 @@
 body
 {
-    background-color: black;
-    color: white;
     min-width: 800px;
 }
 footer
@@ -54,6 +52,11 @@ html,body
 .icp_a
 {
     text-decoration: none;
+}
+header
+{
+    background-color: black;
+    color: white;
 }
 main,footer
 {
