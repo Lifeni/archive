@@ -1,6 +1,20 @@
-body
+html,body
 {
     min-width: 800px;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+header
+{
+    background-color: black;
+    color: white;
+}
+main,footer
+{
+    background-color: white;
+    color: black;
 }
 footer
 {
@@ -11,6 +25,12 @@ footer
     bottom: 0px;
     */
 }
+video
+{
+    width: 100%;
+}
+
+
 .title0
 {
     text-align: center;
@@ -25,24 +45,17 @@ footer
     font-size: 24px;
     font-style: italic;
 }
-html,body
-{
-    margin-top: 0;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-}
-.icp
-{
-    margin-right: 36px;
-    margin-bottom: 0px;
-}
 .haha
 {
     color: darkgrey;
     margin-left: 36px;
     margin-bottom: 0px;
     float: left;
+}
+.icp
+{
+    margin-right: 36px;
+    margin-bottom: 0px;
 }
 .icp_text
 {
@@ -53,25 +66,11 @@ html,body
 {
     text-decoration: none;
 }
-header
-{
-    background-color: black;
-    color: white;
-}
-main,footer
-{
-    background-color: white;
-    color: black;
-}
 .line
 {
     height: 3px;
     width: 100%;
     background-color: red;
-}
-video
-{
-    width: 100%;
 }
 
 
