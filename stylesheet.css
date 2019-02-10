@@ -11,18 +11,9 @@ header
     background-color: black;
     color: white;
 }
-main,footer
-{
-    background-color: white;
-    color: black;
-}
 footer
 {
     font-size: 12px;
-    /*
-    position: fixed;
-    bottom: 0px;
-    */
 }
 video
 {
@@ -41,7 +32,7 @@ video
     font-size: 24px;
     font-style: italic;
 }
-.link0,.link1
+.link
 {
     color: darkgrey;
     margin-left: 36px;
@@ -54,7 +45,7 @@ video
     margin-bottom: 24px;
     float: right;
 }
-.icp_text,.link_text
+.link_text,.icp_text
 {
     color: darkgrey;
     text-decoration: none;
