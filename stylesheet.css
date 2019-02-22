@@ -11,10 +11,6 @@ header
     background-color: black;
     color: white;
 }
-footer
-{
-    font-size: 12px;
-}
 video
 {
     width: 100%;
@@ -32,24 +28,6 @@ video
     font-size: 24px;
     font-style: italic;
 }
-.link
-{
-    color: darkgrey;
-    margin-left: 36px;
-    margin-bottom: 24px;
-    float: left;
-}
-.icp
-{
-    margin-right: 36px;
-    margin-bottom: 24px;
-    float: right;
-}
-.link_text,.icp_text
-{
-    color: darkgrey;
-    text-decoration: none;
-}
 .line
 {
     height: 3px;
@@ -58,3 +36,26 @@ video
 }
 
 
+/* footer 通用代码*/
+footer
+{
+    font-size: 12px;
+}
+.footer_div_left
+{
+    color: darkgrey;
+    margin-left: 36px;
+    margin-bottom: 24px;
+    float: left;
+}
+.footer_div_right
+{
+    margin-right: 36px;
+    margin-bottom: 24px;
+    float: right;
+}
+.footer_link
+{
+    color: darkgrey;
+    text-decoration: none;
+}
