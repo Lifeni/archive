@@ -1,6 +1,6 @@
 html,body
 {
-    min-width: 800px;
+    min-width: 680px;
     margin-top: 0;
     margin-left: 0;
     margin-right: 0;
@@ -15,7 +15,6 @@ video
 {
     width: 100%;
 }
-
 
 .title0
 {
