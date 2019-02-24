@@ -35,26 +35,15 @@ video
 }
 
 
-/* footer 通用代码*/
 footer
 {
     font-size: 12px;
-}
-.footer_div_left
-{
-    color: darkgrey;
-    margin-left: 36px;
-    margin-bottom: 24px;
-    float: left;
-}
-.footer_div_right
-{
-    margin-right: 36px;
-    margin-bottom: 24px;
-    float: right;
+    text-align: center;
+    margin: 24px;
 }
 .footer_link
 {
+    margin: 12px;
     color: darkgrey;
     text-decoration: none;
 }
