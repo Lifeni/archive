@@ -37,7 +37,6 @@ video
 
 footer
 {
-    font-size: 12px;
     text-align: center;
     margin: 24px;
 }
@@ -45,5 +44,6 @@ footer
 {
     margin: 12px;
     color: darkgrey;
+    font-size: 12px;
     text-decoration: none;
 }
