@@ -1,0 +1,49 @@
+html,body
+{
+    min-width: 680px;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+header
+{
+    background-color: black;
+    color: white;
+}
+video
+{
+    width: 100%;
+}
+
+.title0
+{
+    text-align: center;
+    font-size: 48px;
+}
+.lyrics
+{
+    text-align: center;
+    font-size: 24px;
+    font-style: italic;
+}
+.line
+{
+    height: 3px;
+    width: 100%;
+    background-color: red;
+}
+
+
+footer
+{
+    text-align: center;
+    margin: 24px;
+}
+.footer_link
+{
+    margin: 12px;
+    color: darkgrey;
+    font-size: 12px;
+    text-decoration: none;
+}

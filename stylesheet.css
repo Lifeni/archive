@@ -1,49 +1,38 @@
 html,body
 {
     min-width: 680px;
-    margin-top: 0;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 0;
+    background-color: #ECEFF1;
+    height: 100%;
 }
-header
+*
 {
-    background-color: black;
-    color: white;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-video
+main
 {
-    width: 100%;
+    height: 600px;
+    padding-bottom: 150px;
 }
-
-.title0
-{
-    text-align: center;
-    font-size: 48px;
-}
-.lyrics
-{
-    text-align: center;
-    font-size: 24px;
-    font-style: italic;
-}
-.line
-{
-    height: 3px;
-    width: 100%;
-    background-color: red;
-}
-
-
 footer
 {
-    text-align: center;
-    margin: 24px;
+    height: 76px;
+    padding: 12px 24px;
+    background-color: white;
+    box-shadow: 0 0 10px #607D8B;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
-.footer_link
+.foot_link
 {
-    margin: 12px;
-    color: darkgrey;
-    font-size: 12px;
-    text-decoration: none;
+    font-size: 32px;
+}
+
+.container
+{
+    position: relative;
+    min-height: 100%;
 }
