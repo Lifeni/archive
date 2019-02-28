@@ -1,36 +1,54 @@
-html,body
+html
 {
     min-width: 680px;
-    background-color: #ECEFF1;
+    background-color: white;
     height: 100%;
 }
-*
+* 
 {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-main
+.background_image
 {
-    height: 600px;
-    padding-bottom: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.5;
 }
-footer
+.bar
 {
-    height: 76px;
+    height: 48px;
     padding: 12px 24px;
     background-color: white;
-    box-shadow: 0 0 10px #607D8B;
-    position: absolute;
+    box-shadow: 0 0 8px #BDBDBD;
+    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-}
-.foot_link
-{
-    font-size: 32px;
+    text-align: right;
 }
 
+.music
+{
+    position: fixed;
+    left: 6px;
+    bottom: 6px;
+    padding: 0;
+    margin: 0;
+}
+.footer_link
+{
+    margin-left: 12px;
+    font-size: 12px;
+    text-decoration: none;
+    color: grey;
+}
+.footer_link:hover
+{
+    color:blue;
+}
 .container
 {
     position: relative;
