@@ -7,11 +7,13 @@
     height: calc(528px*1.01);
     box-shadow: 0 0 16px #FFEB3B;
 }
+
 .card0
 {
     animation: smaller0 0.2s;
     -webkit-animation: smaller0 0.2s;
 }
+
 @keyframes bigger0 
 {
     0% 
@@ -27,6 +29,7 @@
         box-shadow: 0 0 16px #FFEB3B;
     }
 }
+
 @-webkit-keyframes bigger0
 {
     0% 
@@ -42,6 +45,7 @@
         box-shadow: 0 0 16px #FFEB3B;
     }
 }
+
 @keyframes smaller0
 {
     0% 
@@ -57,6 +61,7 @@
         box-shadow: 0 0 16px #757575;
     }
 }
+
 @-webkit-keyframes smaller0
 {
     0% 
@@ -72,7 +77,6 @@
         box-shadow: 0 0 16px #757575;
     }
 }
-
 
 
 
@@ -146,11 +150,15 @@
     }
 }
 */
+
+
+
 .container
 {
     animation: enter 1s;
     -webkit-animation: enter 1s;
 }
+
 @keyframes enter
 {
     0% 
@@ -162,6 +170,7 @@
         opacity: 1;
     }
 }
+
 @-webkit-keyframes enter
 {
     0% 
@@ -176,8 +185,6 @@
 
 
 
-
-
 .logo:hover,.logo_O:hover
 {
 
@@ -188,11 +195,13 @@
     height: calc(96px*1.05);
     box-shadow: 0 0 16px #FFEB3B;
 }
+
 .logo,.logo_O
 {
     animation: smaller_logo 0.2s;
     -webkit-animation: smaller_logo 0.2s;
 }
+
 @keyframes bigger_logo 
 {
     0% 
@@ -208,6 +217,7 @@
         box-shadow: 0 0 16px #FFEB3B;
     }
 }
+
 @-webkit-keyframes bigger_logo
 {
     0% 
@@ -223,6 +233,7 @@
         box-shadow: 0 0 16px #FFEB3B;
     }
 }
+
 @keyframes smaller_logo
 {
     0% 
@@ -238,6 +249,7 @@
         box-shadow: 0 0 16px #212121;
     }
 }
+
 @-webkit-keyframes smaller_logo
 {
     0% 
@@ -255,17 +267,20 @@
 }
 
 
+
 .card0_link:hover
 {
     animation: card0_link_up 0.2s;
     -webkit-animation: card0_link_up 0.2s;
     color: #757575;
 }
+
 .card0_link
 {
     animation: card0_link_down 0.2s;
     -webkit-animation: card0_link_down 0.2s;
 }
+
 @keyframes card0_link_up
 {
     0% 
@@ -277,6 +292,7 @@
         color: #757575;
     }
 }
+
 @-webkit-keyframes card0_link_up
 {
     0% 
@@ -288,6 +304,7 @@
         color: #757575;
     }
 }
+
 @keyframes card0_link_down
 {
     0% 
@@ -299,6 +316,7 @@
         color: #FAFAFA;
     }
 }
+
 @-webkit-keyframes card0_link_down
 {
     0% 
@@ -313,8 +331,6 @@
 
 
 
-
-
 .footer_link:hover
 {
     animation: footer_link_up 0.2s;
@@ -323,11 +339,13 @@
 
     margin: 8px 16px;
 }
+
 .footer_link
 {
     animation: footer_link_down 0.2s;
     -webkit-animation: footer_link_down 0.2s;
 }
+
 @keyframes footer_link_up
 {
     0% 
@@ -341,6 +359,7 @@
         margin: 8px 16px;
     }
 }
+
 @-webkit-keyframes footer_link_up
 {
     0% 
@@ -354,6 +373,7 @@
         margin: 8px 16px;
     }
 }
+
 @keyframes footer_link_down
 {
     0% 
@@ -367,6 +387,7 @@
         margin: 0 8px;
     }
 }
+
 @-webkit-keyframes footer_link_down
 {
     0% 

@@ -28,10 +28,8 @@ header
     width: 100%;
     min-width: 800px;
     padding: 24px 48px;;
-
     background-color: #212121;
     box-shadow: 0 0 16px #757575;
-
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -92,8 +90,7 @@ main
     height: 100%;
     background-color: #212121;
     color: #FAFAFA;
-    display: flex;
-    
+    display: flex;   
     justify-content: center;
     align-items: center;
     align-content: center;
@@ -186,7 +183,6 @@ footer
     padding: 24px 48px;
     background-color: #212121;
     box-shadow: 0 0 16px #757575;
-
     display: flex; 
     justify-content: center;
     align-items: center;
