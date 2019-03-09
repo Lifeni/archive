@@ -241,7 +241,6 @@ main
     flex-direction: row;
     flex-wrap: wrap;
     border-radius: 0 0 4px 4px;
-    overflow: auto;
     transition: all 0.2s ease-in-out;
 }
 
@@ -274,6 +273,7 @@ main
     line-height: 48px;
     background-color: #FAFAFA;
     color: #212121;
+    overflow: auto;
     opacity: 1;
     border-radius: 4px;
     transition: all 0.2s ease-in-out;
