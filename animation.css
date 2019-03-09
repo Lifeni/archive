@@ -191,9 +191,10 @@
     animation: bigger_logo 0.2s;
     -webkit-animation: bigger_logo 0.2s;
 
-    width: calc(96px*1.05);
-    height: calc(96px*1.05);
+    width: calc(96px*1.5);
+    height: calc(96px*1.5);
     box-shadow: 0 0 16px #FFEB3B;
+    border-radius: 4px;
 }
 
 .logo,.logo_O
@@ -209,12 +210,14 @@
         width: 96px;
         height: 96px;
         box-shadow: 0 0 16px #212121;
+        border-radius: 64px;
     }
     100% 
     {
-        width: calc(96px*1.05);
-        height: calc(96px*1.05);
+        width: calc(96px*1.5);
+        height: calc(96px*1.5);
         box-shadow: 0 0 16px #FFEB3B;
+        border-radius: 4px;
     }
 }
 
@@ -225,12 +228,14 @@
         width: 96px;
         height: 96px;
         box-shadow: 0 0 16px #212121;
+        border-radius: 64px;
     }
     100% 
     {
-        width: calc(96px*1.05);
-        height: calc(96px*1.05);
+        width: calc(96px*1.5);
+        height: calc(96px*1.5);
         box-shadow: 0 0 16px #FFEB3B;
+        border-radius: 4px;
     }
 }
 
@@ -238,15 +243,17 @@
 {
     0% 
     {    
-        width: calc(96px*1.05);
-        height: calc(96px*1.05);
+        width: calc(96px*1.5);
+        height: calc(96px*1.5);
         box-shadow: 0 0 16px #FFEB3B;
+        border-radius: 4px;
     }
     100% 
     {
         width: 96px;
         height: 96px;
         box-shadow: 0 0 16px #212121;
+        border-radius: 64px;
     }
 }
 
@@ -254,15 +261,17 @@
 {
     0% 
     {    
-        width: calc(96px*1.05);
-        height: calc(96px*1.05);
+        width: calc(96px*1.5);
+        height: calc(96px*1.5);
         box-shadow: 0 0 16px #FFEB3B;
+        border-radius: 4px;
     }
     100% 
     {
         width: 96px;
         height: 96px;
         box-shadow: 0 0 16px #212121;
+        border-radius: 64px;
     }
 }
 
