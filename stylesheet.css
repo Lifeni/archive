@@ -46,23 +46,18 @@ header:hover
     box-shadow: 0 0 16px #212121;
 }
 
-header:hover .title_icon
+header:hover .header_icon
 {
     opacity: 1;
 }
 
-.title_icon
+.header_icon
 {
     width: auto;
     height: 24px;
     margin: 24px;
     opacity: 0.2;
     transition: all 0.2s ease-in-out;
-}
-
-.title_icon:active
-{
-    opacity: 0.5;
 }
 
 main
@@ -86,7 +81,7 @@ main
     flex-wrap: nowrap;
 }
 
-.card0,.card1,.card2
+.card-0,.card-1,.card-2
 {
     height: 100%;
     width: 100%;
@@ -102,31 +97,31 @@ main
     transition: all 0.2s ease-in-out;
 }
 
-.card0:hover,.card1:hover,.card2:hover
+.card-0:hover,.card-1:hover,.card-2:hover
 {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-.card0
+.card-0
 {
     width: 1248px;
     height: 512px;
 }
 
-.poster
+.card-0_img
 {
     max-height: 100%;
     max-width: 100%;
     width: auto;
 }
 
-.card0_left
+.card-0_left
 {
     width: 100%;
     text-align: center;
 }
 
-.card0_right
+.card-0_right
 {
     padding: 48px;
     min-width: 300px;
@@ -143,23 +138,18 @@ main
     border-radius: 0 4px 4px 0;
 }
 
-.text0,.text1,.card0_link
-{
-    margin: 8px;
-}
-
-.card0_title0
+.card-0_right_title-0
 {
     font-size: 36px;
 }
 
-.card0_title1
+.card-0_right_title-1
 {
     font-size: 24px;
     margin-bottom: 48px;
 }
 
-.logo_O
+.card-0_right_logo
 {
     width: 96px;
     height: 96px;
@@ -167,9 +157,10 @@ main
     border-radius: 4px;
 }
 
-.card0_link
+.card-0_right_link
 {
     height: 24px;
+    margin: 8px;
     color: #FAFAFA;
     border-bottom: 1px solid #212121;
     text-decoration: none;
@@ -180,12 +171,12 @@ main
     flex-wrap: wrap;
 }
 
-.card0_link:hover
+.card-0_right_link:hover
 {
     border-bottom: 1px solid #FAFAFA;
 }
 
-.link_icon
+.card-0_right_link_icon
 {
     width: 20px;
     height: 20px;
@@ -193,7 +184,7 @@ main
     border: 0;
 }
 
-.card1
+.card-1
 {
     width: 400px;
     height: 400px;
@@ -201,18 +192,18 @@ main
     background-color: #212121;
 }
 
-.card1:hover .card1_float
+.card-1:hover .card-1_float
 {
     opacity: 1;
     height: 100px;
 }
 
-.card1:hover .card1_img
+.card-1:hover .card-1_img
 {
     opacity: 0.5;
 }
 
-.card1_img
+.card-1_img
 {
     height: 100%;
     max-width: 100%;
@@ -222,7 +213,7 @@ main
     transition: all 0.2s ease-in-out;
 }
 
-.card1_float,.card2_float
+.card-1_float,.card-2_float
 {
     height: 0px;
     width: 100%;
@@ -244,25 +235,25 @@ main
     transition: all 0.2s ease-in-out;
 }
 
-.card2
+.card-2
 {
     width: 800px;
     height: 400px;
     background-color: #212121;
 }
 
-.card2:hover .card2_float
+.card-2:hover .card-2_float
 {
     opacity: 1;
     height: 100px;
 }
 
-.card2:hover .saying
+.card-2:hover .card-2_text
 {
     opacity: 0.5;
 }
 
-.saying
+.card-2_text
 {
     width: 100%;
     height: 100%;
@@ -279,17 +270,17 @@ main
     transition: all 0.2s ease-in-out;
 }
 
-.float_title
+.card_float_title
 {
     font-size: 24px;
 }
 
-.float_text
+.card_float_text
 {
     font-size: 16px;
 }
 
-.float_link
+.card_float_link
 {
     color: #FAFAFA;
     text-decoration: none;
@@ -311,14 +302,14 @@ footer:hover
     box-shadow: 0 0 16px #212121;
 }
 
-footer:hover .logo
+footer:hover .footer_logo
 {
     width: 56px;
     height: 56px;
     border-radius: 4px;
 }
 
-footer:hover .mail_icon
+footer:hover .footer_mail-link_icon
 {
     width: 48px;
     height: 48px;
@@ -335,7 +326,7 @@ footer:hover .footer_end
     opacity: 0;
 }
 
-footer:hover .footer_link ,footer:hover .footer_link_icp 
+footer:hover .footer_link ,footer:hover .footer_icp-link
 {
     font-size: 14px;
     margin: 0 10px;
@@ -351,7 +342,7 @@ footer:hover .footer_link ,footer:hover .footer_link_icp
     align-items: center;
 }
 
-.logo
+.footer_logo
 {
     width: 36px;
     height: 36px;
@@ -359,7 +350,7 @@ footer:hover .footer_link ,footer:hover .footer_link_icp
     transition: all 0.2s ease-in-out;
 }
 
-.mail_icon
+.footer_mail-link_icon
 {
     width: 0;
     height: 0;
@@ -370,7 +361,7 @@ footer:hover .footer_link ,footer:hover .footer_link_icp
     transition: all 0.2s ease-in-out;
 }
 
-.logo_link,.mail_link
+.footer_logo-link,.footer_mail-link
 {
     display: flex;
     justify-content: center;
@@ -379,7 +370,7 @@ footer:hover .footer_link ,footer:hover .footer_link_icp
     flex-wrap: nowrap;
 }
 
-.footer_link,.footer_link_icp
+.footer_link,.footer_icp-link
 {
     font-weight: bold;
     font-size: 12px;
@@ -394,7 +385,7 @@ footer:hover .footer_link ,footer:hover .footer_link_icp
     transition: all 0.2s ease-in-out;
 }
 
-.footer_link:hover,.footer_link_icp:hover
+.footer_link:hover,.footer_icp-link:hover
 {
     color: #FAFAFA;
 }
