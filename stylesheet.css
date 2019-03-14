@@ -110,7 +110,7 @@ main
     transition: all 0.2s ease-in-out;
 }
 
-.card-0:hover .card-0_right
+/* .card-0:hover .card-0_right
 {
     width: 640px;
 } 
@@ -118,7 +118,7 @@ main
 .card-0:hover .card-0_image
 {
     filter: blur(16px);
-} 
+}  */
 
 .card-0_image
 {
