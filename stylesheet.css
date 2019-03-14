@@ -8,7 +8,7 @@
 
 html,body
 {
-    min-width: 960px;
+    min-width: 1296px;
     background-color: #F5F5F5;
     height: 100%;
     width: 100%;
@@ -119,13 +119,19 @@ main
 {
     width: 100%;
     text-align: center;
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
 }
+
+/* .card-0_left:hover
+{
+    opacity: 0.5;
+} */
 
 .card-0_right
 {
     padding: 48px;
-    min-width: 300px;
-    width: 35%;
+    width: 480px;
     height: 100%;
     background-color: #212121;
     color: #FAFAFA;
@@ -205,9 +211,9 @@ main
 
 .card-1_img
 {
-    height: 100%;
-    max-width: 100%;
-    width: auto;
+    height: 400px;
+    width: 400px;
+    border: 24px solid #FAFAFA;
     border-radius: 4px;
     opacity: 1;
     transition: all 0.2s ease-in-out;
