@@ -17,19 +17,22 @@ html,body
 {
     position: relative;
     min-height: 100%;
+    min-width: 480px;
     display: flex; 
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 0 72px;
 }
 
 .topic
 {
     margin: 72px;
     font-size: 96px;
-    font-family: serif;
+    font-family: '思源宋体 CN',serif;
     font-weight: thin;
     color: #212121;
+    animation: display1 0.5s;
 }
 
 .iconBar
@@ -40,6 +43,7 @@ html,body
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    animation: display1 0.5s;
 }
 
 .icon
@@ -57,33 +61,33 @@ html,body
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    animation: display2 0.6s;
 }
 
-.link
+.link,.text
 {
     width: auto;
-    margin: 24px;
+    padding: 48px;
     font-size: 24px;
-    font-family: serif;
-    font-weight: thin;
+    font-family: '思源宋体 CN',serif;
     color: #212121;
     text-decoration: none;
-    transition: all 0.5s ease-in-out;
-}
-
-.link:hover
-{
-    margin: 0 48px;
+    transition: margin 0.5s ease-in-out;
 }
 
 .Separator
 {
     width: auto;
-    margin: 0 12px;
     font-size: 12px;
     font-family: serif;
     font-weight: thin;
     color: #212121;
+}
+
+
+.link:hover
+{
+    margin: 0 24px;
 }
 
 .lastBar
@@ -97,6 +101,7 @@ html,body
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    animation: display2 0.8s;
 }
 
 .logo
@@ -105,6 +110,12 @@ html,body
     height: 24px;
     margin: 0 24px 0 0;
     border-radius: 24px;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.logo:hover,.logo:active
+{
+    box-shadow: 0 0 24px #BDBDBD;
 }
 
 .title
@@ -130,14 +141,27 @@ html,body
 {
     margin: 12px;
     font-size: 96px;
-    font-family: serif;
     color: #212121;
+    animation: display1 1s;
 }
 
 .notFound2
 {
     font-size: 24px;
-    font-family: serif;
     color: #212121;
+    animation: display1 1s;
 }
 
+@keyframes display1
+{
+    0% {opacity: 0;}
+    20% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes display2
+{
+    0% {opacity: 0;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
