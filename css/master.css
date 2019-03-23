@@ -25,6 +25,29 @@ html,body
     padding: 0 72px;
 }
 
+.topBar
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 72px;
+    width: 100%;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    animation: display1 0.5s;
+}
+
+.global
+{
+    margin: 0 36px;
+    font-size: 18px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #BDBDBD;
+}
+
 .topic
 {
     margin: 72px;
@@ -90,7 +113,7 @@ html,body
     margin: 0 24px;
 }
 
-.lastBar
+.bottomBar
 {
     position: absolute;
     left: 0;
