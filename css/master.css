@@ -16,6 +16,7 @@ html,body
 .container
 {
     position: relative;
+    height: 580px;
     min-height: 100%;
     min-width: 580px;
     display: flex; 
@@ -60,8 +61,8 @@ html,body
 
 .iconBar
 {
-    height: 100%;
-    width: 100%;
+    height: auto;
+    width: auto;
     display: flex; 
     align-items: center;
     justify-content: center;
@@ -78,8 +79,8 @@ html,body
 
 .linkBar
 {
-    height: 100%;
-    width: 100%;
+    height: auto;
+    width: auto;
     display: flex; 
     align-items: center;
     justify-content: center;
