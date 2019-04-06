@@ -1,106 +1,127 @@
-* 
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     outline: none;
 }
 
-html,body
-{
-    background-color: #F5F5F5;
+html,
+body {
+
     height: 100%;
     width: 100%;
+    background-color: #F5F5F5;
 }
 
-.container
-{
+.container {
     position: relative;
-    height: 580px;
     min-height: 100%;
-    min-width: 580px;
-    display: flex; 
+    min-width: auto;
+    background-color: #F5F5F5;
+    padding: 0 0 72px 0;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 72px 0;
 }
 
-.topBar
+.contentContainer {
+    position: relative;
+    height: 100%;
+    min-height: 100%;
+    min-width: auto;
+    background-color: #F5F5F5;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.contentContainer
 {
+    background-color: #F5F5F5;
+} 
+
+/* .topBar {
     position: absolute;
     left: 0;
     top: 0;
     height: 72px;
     width: 100%;
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: flex-end;
     flex-wrap: wrap;
     animation: display1 0.5s;
-}
+} */
 
-.global
-{
+/* .global {
     margin: 0 36px;
     font-size: 18px;
     font-family: sans-serif;
     text-decoration: none;
     color: #BDBDBD;
-}
+} */
 
-.topic
-{
-    margin: 72px;
+.contentTitle {
+    margin: 36px 36px 48px;
+    padding: 12px 36px 24px;
     font-size: 96px;
-    font-family: '思源宋体 CN',serif;
+    font-family: '思源宋体 CN', serif;
     font-weight: thin;
     color: #212121;
+    border-radius: 128px;
+    background-color: #EEEEEE;
     animation: display1 0.5s;
 }
 
-.iconBar
-{
+.iconBar {
     height: auto;
-    width: auto;
-    display: flex; 
+    width: 100%;
+    max-width: 640px;
+    padding: 36px 36px;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-wrap: nowrap;
     animation: display1 0.5s;
 }
 
-.icon
-{
+.icon {
     width: auto;
-    height: 24px;
-    margin: 36px;
+    height: auto;
+    margin: 0 20px;
+    max-height: 24px;
+    min-width: 12px;
 }
 
-.linkBar
-{
+.linkBar {
     height: auto;
-    width: auto;
-    display: flex; 
+    width: 100%;
+    margin: 0 0 24px 0;
+    padding: 0 24px;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     animation: display2 0.6s;
 }
 
-.link,.text
-{
+.link,
+.text {
     width: auto;
-    padding: 48px;
+    padding: 24px 36px;
     font-size: 24px;
-    font-family: '思源宋体 CN',serif;
+    font-family: '思源宋体 CN', serif;
     color: #212121;
     text-decoration: none;
-    transition: margin 0.5s ease-in-out;
 }
 
-.Separator
-{
+.link:visited {
+    border-bottom: 1px solid #212121;
+}
+
+.Separator {
     width: auto;
     font-size: 12px;
     font-family: serif;
@@ -108,28 +129,33 @@ html,body
     color: #212121;
 }
 
-
-.link:hover
-{
-    margin: 0 24px;
+.linkText {
+    border-bottom: 1px solid #F5F5F5;
+    transition: all 0.2s ease-in-out;
 }
 
-.bottomBar
-{
+.link:hover .linkText {
+    border-bottom: 1px solid #212121;
+}
+
+.displayBlock {
+    border: 0;
+}
+
+.bottomBar {
     position: absolute;
     left: 0;
     bottom: 0;
     height: 72px;
     width: 100%;
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     animation: display2 0.8s;
 }
 
-.logo
-{
+.logo {
     width: 24px;
     height: 24px;
     margin: 0 24px 0 0;
@@ -137,23 +163,22 @@ html,body
     transition: box-shadow 0.2s ease-in-out;
 }
 
-.logo:hover,.logo:active
-{
+.logo:hover,
+.logo:active {
     box-shadow: 0 0 24px #BDBDBD;
 }
 
-.title
-{
+.title {
     display: inherit;
-    margin: 0 36px;
+    margin: 0 24px;
     font-size: 18px;
     font-family: sans-serif;
     color: #212121;
+    text-decoration: none;
 }
 
-.icp
-{
-    margin: 0 36px;
+.icp {
+    margin: 0 24px;
     font-size: 12px;
     font-family: sans-serif;
     color: #212121;
@@ -161,16 +186,30 @@ html,body
     text-decoration: none;
 }
 
-@keyframes display1
-{
-    0% {opacity: 0;}
-    20% {opacity: 0;}
-    100% {opacity: 1;}
+@keyframes display1 {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
-@keyframes display2
-{
-    0% {opacity: 0;}
-    50% {opacity: 0;}
-    100% {opacity: 1;}
+@keyframes display2 {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

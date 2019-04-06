@@ -1,43 +1,51 @@
 <!DOCTYPE html>
 <html lang="zh-hans">
-    <head>
-        <meta charset="utf-8">
-        <meta name="author" content="Lifeni">
-        <meta name="description" content="A personal website.">
 
-        <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="image/favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="css/master.css" type="text/css">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Lifeni">
+    <meta name="description" content="A personal website.">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 
-        <title>Lifeni</title>
-    </head>
+    <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/master.css" type="text/css">
 
-    <body>    
-        <div class="container">
-            <div class="topBar">
-                <a href="https://lifeni.top/global/" class="global">En</a>
-            </div>
-            <div class="iconBar">
-                <img src="image/L_black.png" alt="L" class="icon">
-                <img src="image/I_black.png" alt="I" class="icon">
-                <img src="image/F_black.png" alt="F" class="icon">
-                <img src="image/E_black.png" alt="E" class="icon">
-                <img src="image/N_black.png" alt="N" class="icon">
-                <img src="image/I_black.png" alt="I" class="icon">
-            </div>
-            <div class="linkBar">
-                <a href="言/" class="link">言</a>
-                <span class="Separator">|</span>
-                <a href="旧/" class="link">旧</a>
-                <span class="Separator">|</span>
-                <a href="寻/" class="link">寻</a>
-            </div>
-            <div class="bottomBar">
-                <span class="title">
-                <img src="image/logo.jpg" alt="logo" class="logo">
-                Lifeni</span>
-                <a href="http://www.miitbeian.gov.cn/" class="icp" target="_blank">鲁ICP备19006085号</a>
-            </div>
+    <title>Lifeni</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="iconBar" id="iconBar">
+            <img src="image/L_black.png" alt="L" class="icon">
+            <img src="image/I_black.png" alt="I" class="icon">
+            <img src="image/F_black.png" alt="F" class="icon">
+            <img src="image/E_black.png" alt="E" class="icon">
+            <img src="image/N_black.png" alt="N" class="icon">
+            <img src="image/I_black.png" alt="I" class="icon">
         </div>
-    </body>
+        <div class="linkBar">
+            <a href="content/言/" class="link" title="言">
+                <span class="linkText">言</span>
+            </a>
+            <span class="Separator">|</span>
+            <a href="content/旧/" class="link">
+                <span class="linkText">旧</span>
+            </a>
+            <span class="Separator">|</span>
+            <a href="content/寻/" class="link">
+                <span class="linkText">寻</span>
+            </a>
+        </div>
+        <!-- <hr id="displayHr"> -->
+        <!-- <div class="webDiv" id="webDiv"></div> -->
+        <iframe src="about:blank" frameborder="0" id="displayBlock" class="displayBlock" height="1px"></iframe>
+        <div class="bottomBar">
+            <a href="https://lifeni.top" class="title" alt="Home"><img src="image/logo.png" alt="logo"class="logo">Lifeni</a>
+            <a href="http://www.miitbeian.gov.cn/" class="icp" target="_blank">鲁ICP备19006085号</a>
+        </div>
+    </div>
+    <script src="javascript/content.js"></script>
+</body>
+
 </html>
