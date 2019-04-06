@@ -18,7 +18,7 @@ body {
     min-height: 100%;
     min-width: auto;
     background-color: #F5F5F5;
-    padding: 0 0 72px 0;
+    padding: 36px 0 72px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,10 +37,9 @@ body {
     flex-direction: column;
 }
 
-.contentContainer
-{
+.contentContainer {
     background-color: #F5F5F5;
-} 
+}
 
 /* .topBar {
     position: absolute;
@@ -98,6 +97,7 @@ body {
 .linkBar {
     height: auto;
     width: 100%;
+    max-width: 500px;
     margin: 0 0 24px 0;
     padding: 0 24px;
     display: flex;
@@ -110,7 +110,7 @@ body {
 .link,
 .text {
     width: auto;
-    padding: 24px 36px;
+    padding: 24px;
     font-size: 24px;
     font-family: '思源宋体 CN', serif;
     color: #212121;
@@ -143,10 +143,11 @@ body {
     overflow: hidden;
 }
 
-.contentVideo
-{
+.contentVideo {
     width: auto;
-    max-height: 480px;
+    height: auto;
+    max-width: 100%;
+    margin: 0 0 24px 0;
 }
 
 .bottomBar {
