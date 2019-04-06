@@ -30,7 +30,7 @@ function showBlock(whichLink) {
     // let displayHr = document.getElementById("displayHr");
     displayBlock.setAttribute("src", source + "index.html");
     displayBlock.setAttribute("min-height","400px");
-    displayBlock.setAttribute("height","400px");
+    displayBlock.setAttribute("height","480px");
     displayBlock.setAttribute("width","100%");
     // displayHr.setAttribute("width","480px");
 }

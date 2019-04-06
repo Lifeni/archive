@@ -140,6 +140,13 @@ body {
 
 .displayBlock {
     border: 0;
+    overflow: hidden;
+}
+
+.contentVideo
+{
+    width: auto;
+    max-height: 480px;
 }
 
 .bottomBar {
@@ -179,7 +186,7 @@ body {
 
 .icp {
     margin: 0 24px;
-    font-size: 12px;
+    font-size: 16px;
     font-family: sans-serif;
     color: #212121;
     opacity: 0.2;
