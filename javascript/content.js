@@ -29,9 +29,9 @@ function showBlock(whichLink) {
     let displayBlock = document.getElementById("displayBlock");
     // let displayHr = document.getElementById("displayHr");
     displayBlock.setAttribute("src", source + "index.html");
-    displayBlock.setAttribute("height","480px");
-    displayBlock.setAttribute("min-height","480px");
-    displayBlock.setAttribute("width","100%");
+    displayBlock.setAttribute("height", "480px");
+    displayBlock.setAttribute("min-height", "480px");
+    displayBlock.setAttribute("width", "100%");
     // displayHr.setAttribute("width","480px");
 }
 
