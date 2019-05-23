@@ -11,42 +11,33 @@
     <link rel="icon" href="image/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/master.css" type="text/css">
 
+    <script>
+        // 这句是用来修复 Chrome 中一个有关 transition 的 BUG
+        // 参见：https://stackoverflow.com/questions/40197386/css-transition-being-fired-upon-load-with-link-and-input-elements-chrome
+    </script>
+
     <title>Lifeni</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="topBar">
-            <a href="https://lifeni.top" class="topBarLink" alt="Home">
-                <!-- <img src="image/logo.png" alt="logo" class="topBarLogo"> -->
-                <span class="topTitle">Lifeni</span>
-            </a>
-            <a href="http://www.miitbeian.gov.cn/" class="topBarICP" target="_blank">
-                鲁ICP备19006085号
-            </a>
-        </div>
-        <div class="bigText">
-            <div class="bigTextPart">人类的悲欢并不相通</div>
-            <div class="bigTextPart">我只觉得他们吵闹</div>
-
-        </div>
-        <div class="bottomBar">
-            <div class="leftCard">
-                <span class="leftCardText">
-                    你好
-                </span>
-            </div>
-
-            <div class="rightCard">
-                <span class="rightCardText">
-                    再见
-                </span>
-            </div>
-
+    <div class="container" id="container">
+        <div class="top-bar">
+            <button class="night-mode" id="night">
+                <img src="image/tonight.png" alt="night-mode" class="night-mode-image" id="nightImage">
+            </button>
         </div>
 
+        <div class="center-box" id="box">
+            <img src="image/background.png" alt="box-image" class="box-image">
+            <!-- <p class="box-text">歌</p> -->
+        </div>
+
+        <div class="button-bar">
+            <a href="https://lifeni.top" class="button-bar-title" id="title" alt="Home">Lifeni</a>
+            <a href="http://www.miitbeian.gov.cn/" class="button-bar-ICP" id="icp" target="_blank">鲁ICP备19006085号</a>
+        </div>
     </div>
-    <script src="javascript/content.js"></script>
+    <script src="javascript/content.js" async></script>
 </body>
 
 </html>
