@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    outline: none;
 }
 
 html,
@@ -10,20 +9,21 @@ body {
     height: 100%;
     width: 100%;
     min-width: 400px;
-    min-height: 400px;
+    min-height: 600px;
 }
 
 .container {
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 
     width: 100%;
     height: 100%;
+    padding: 0 24px;
 
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(250, 250, 250, 1);
     transition: all 1s cubic-bezier(.25, .8, .25, 1);
     perspective: 1000px;
 }
@@ -32,9 +32,9 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    position: flex;
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
 
     width: 100%;
     height: 72px;
@@ -42,11 +42,18 @@ body {
 }
 
 .night-mode {
-    width: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: auto;
     height: 24px;
 
     border: 0;
     background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    outline: none;
 }
 
 .night-mode-image {
@@ -54,34 +61,87 @@ body {
     height: 24px;
 }
 
+
 .center-box {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    min-width: 300px;
-    min-height: 300px;
-    width: 480px;
-    height: 480px;
-    max-width: 75vw;
-    max-height: 75vw;
-    margin: 40px;
+    min-width: 240px;
+    min-height: 240px;
+    width: 70vw;
+    height: 70vw;
+    max-width: 480px;
+    max-height: 480px;
 
+    background-color: black;
     border-radius: 360px;
-    box-shadow: 0 0 40px rgba(189, 189, 189, 1);
-    transition: all 0.5s cubic-bezier(.25, .8, .25, 1);
+    box-shadow: 0 0 80px rgba(117, 117, 117, 1);
+    transition: all 1s cubic-bezier(.25, .8, .25, 1);
+}
 
+
+.in-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 50%;
+    height: 50%;
+
+    background-image: url("../image/cover/毁人不倦.jpg");
+    background-size: 100%;
+    background-color: rgba(183, 28, 28, 1);
+    border-radius: 360px;
+    box-shadow: 0 0 8px black;
+    transition: all 1s cubic-bezier(.25, .8, .25, 1);
+}
+
+.in-box-point {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 8px;
+    box-shadow: 0 0 4px rgba(33, 33, 33, 1);
+    background-color: black;
+}
+
+.music-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 5vw;
+    height: 5vw;
+    max-width: 96px;
+    max-height: 96px;
+
+    outline: none;
+    border: 0;
+    border-radius: 360px;
+    background-image: url("../image/icon/play0.png");
+    background-size: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    transition: all .5s cubic-bezier(.25, .8, .25, 1);
 }
 
 .box-image {
+    z-index: 100;
+
     width: 100%;
     height: 100%;
 
     border-radius: 360px;
+    user-select: none;
+    transition: all 0.5s cubic-bezier(.25, .8, .25, 1);
 }
 
 .box-text {
+    position: absolute;
+    left: 0;
+    top: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,7 +149,38 @@ body {
     width: 100%;
     height: 100%;
 
-    font-size: 200px;
+    font-size: 100px;
+    font-family: Courier, 'Courier New', monospace;
+    white-space: nowrap;
+    user-select: none;
+    transition: all 1s cubic-bezier(.25, .8, .25, 1);
+}
+
+.left-box,
+.right-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 12vw;
+    margin: 24px;
+
+    text-align: center;
+    font-size: 3vw;
+    font-family: '思源宋体 CN', 'Times New Roman', Times, serif;
+    transition: all 1s cubic-bezier(.25, .8, .25, 1);
+    white-space: nowrap;
+}
+
+.title-text {
+    font-size: 3vw;
+}
+
+.author-text {
+    font-size: 2vw;
+    margin: 8px;
 }
 
 .button-bar {
@@ -109,14 +200,56 @@ body {
     font-size: 24px;
     color: rgba(0, 0, 0, 1);
     text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
     transition: all 1s cubic-bezier(.25, .8, .25, 1);
 }
 
 .button-bar-ICP {
+    opacity: .2;
     font-size: 12px;
     color: rgba(0, 0, 0, 1);
     text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
     transition: all 1s cubic-bezier(.25, .8, .25, 1);
+}
+
+@media screen and (max-width:1080px) {
+
+    html,
+    body {
+
+        min-height: 800px;
+    }
+
+    .container {
+        padding: 48px 0;
+        flex-direction: column;
+    }
+
+    .center-box {
+        max-width: 400px;
+        max-height: 400px;
+    }
+
+    .left-box,
+    .right-box {
+        width: 20vh;
+    }
+
+    .title-text {
+        font-size: 5vh;
+    }
+
+    .author-text {
+        font-size: 2vh;
+    }
+
+    .music-control {
+        width: 8vh;
+        height: 8vh;
+        max-width: 96px;
+        max-height: 96px;
+    }
 }
