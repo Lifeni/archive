@@ -10,6 +10,7 @@
     <link rel="shortcut icon" href="image/icon/favicon.ico" type="image/x-icon">
     <link rel="icon" href="image/icon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/index.css" type="text/css">
+    <link rel="stylesheet" href="css/music.css" type="text/css">
 
     <script>
         // 这句是用来修复 Chrome 中一个有关 transition 的 BUG
@@ -23,20 +24,26 @@
     <div class="container" id="container">
         <div class="top-bar">
             <button class="top-button" id="night">
-                <img src="image/icon/tonight.png" alt="night-mode" class="top-button-image" id="nightImage">
+                <img src="image/icon/tonight.png" class="top-button-image" id="nightImage">
             </button>
-            <a class="top-button" href="music.html" title="LOVE" id="music">
-                <img src="image/icon/loveFB.png" alt="music-mode" class="top-button-image" id="musicImage">
-            </a>
             <a class="top-button" href="https://github.com/Lifeni" title="ME" id="me">
                 <img src="image/icon/meB.png" class="top-button-image" id="meImage">
             </a>
+            <a class="top-button" href="index.html" title="HOME" id="home">
+                <img src="image/icon/xB.png" class="top-button-image" id="homeImage">
+            </a>
         </div>
-        <div class="center-card" id="centerCard">
-            <p class="time-text" id="timeText">TIME</p>
-            <div class="progress-bar" id="progressBar"></div>
-            <p class="main-text">TIME</p>
-            <p class="percent-text" id="percentText"></p>
+        <div class="left-box" id="leftBox">
+            <p class="title-text">潮鳴り</p>
+            <p class="author-text">折戸伸治</p>
+        </div>
+        <div class="music-box" id="musicBox" title="音乐播放器">
+            <div class="in-box" id="inBox">
+                <audio src="audio/潮鳴り - 折戸伸治.mp3" type="audio/mp3" id="musicPlayer"></audio>
+            </div>
+        </div>
+        <div class="right-box" id="rightBox">
+            <button class="music-control" id="musicControl"></button>
         </div>
 
         <div class="bottom-bar">
