@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-hans">
-<!-- 针对 IE 的兼容性：IE10 和 IE11 动画异常 IE9 无动画 IE8 及以下不能正常显示-->
 
 <head>
     <meta charset="utf-8">
@@ -12,13 +11,14 @@
     <link rel="shortcut icon" href="image/icon/favicon.ico" type="image/x-icon">
     <link rel="icon" href="image/icon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/index.css" type="text/css">
+    <link rel="stylesheet" href="css/movie.css" type="text/css">
 
     <script>
         // 这句是用来修复 Chrome 中一个有关 transition 的 BUG
         // 参见：https://stackoverflow.com/questions/40197386/css-transition-being-fired-upon-load-with-link-and-input-elements-chrome
     </script>
 
-    <title>Lifeni</title>
+    <title>Movie - Lifeni</title>
 </head>
 
 <body>
@@ -35,17 +35,16 @@
             </button>
         </div>
 
-        <div class="center-card" id="centerCard">
-            <p class="time-text" id="timeText">TIME</p>
-            <div class="progress-bar" id="progressBar"></div>
-            <p class="main-text">TIME</p>
-            <p class="percent-text" id="percentText"></p>
+        <div class="video-box" id="videoBox">
+            <video src="video/春.mp4" class="video-player" poster="image/picture/春.jpg" controls preload="auto"></video>
         </div>
 
         <div class="bottom-bar" id="bottomBar">
             <a href="https://lifeni.top" class="bottom-bar-title" id="title" alt="Home">Lifeni</a>
             <a href="http://www.miitbeian.gov.cn/" class="bottom-bar-ICP" id="icp" target="_blank">鲁ICP备19006085号</a>
         </div>
+
+
 
         <div class="me-card" id="meCard">
             <div class="me-card-title">ME</div>
@@ -68,8 +67,8 @@
                 <a href="index.html" class="card-item-link">Time</a>
             </div>
         </div>
-
     </div>
+
     <script src="javascript/index.js" async></script>
 </body>
 

@@ -2,6 +2,14 @@ html,
 body {
     min-height: 600px;
 }
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
 .music-box {
     display: flex;
     flex-direction: column;

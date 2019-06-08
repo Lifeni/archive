@@ -1,29 +1,39 @@
-let container = document.getElementById("container");
-let night = document.getElementById("night");
+var container = document.getElementById("container");
+var night = document.getElementById("night");
+var apps = document.getElementById("apps");
+var me = document.getElementById("me");
 
-let nightImage = document.getElementById("nightImage");
-let musicImage = document.getElementById("musicImage");
-let meImage = document.getElementById("meImage");
+var nightImage = document.getElementById("nightImage");
+var appsImage = document.getElementById("appsImage");
+var meImage = document.getElementById("meImage");
 
-let centerCard = document.getElementById("centerCard");
-let centerText = document.getElementById("centerText");
+var appsCard = document.getElementById("appsCard");
+var meCard = document.getElementById("meCard");
+var meCardTitle = document.getElementsByClassName("me-card-title");
+var meCardItem = document.getElementsByClassName("me-card-item");
+var appsCardTitle = document.getElementsByClassName("apps-card-title");
+var appsCardItem = document.getElementsByClassName("apps-card-item");
 
-let title = document.getElementById("title");
-let icp = document.getElementById("icp");
 
-let nightFlag = 0; // 0 代表白天 1 代表晚上
-let musicFlag = 0; // 0 未播放 1 播放
-let rotateDeg = 0;
-let reloadFlag = 0;
-let musicTime;
+var centerCard = document.getElementById("centerCard");
+var centerText = document.getElementById("centerText");
 
-let timeFlag = 0; //进度条增加
-let timePlus = 0;
+var title = document.getElementById("title");
+var icp = document.getElementById("icp");
+var bottomBar = document.getElementById("bottomBar");
+
+var nightFlag = 0; // 0 代表白天 1 代表晚上
+var musicFlag = 0; // 0 未播放 1 播放
+var rotateDeg = 0;
+var reloadFlag = 0;
+var musicTime;
+
+var timeFlag = 0; //进度条增加
+var timePlus = 0;
 
 
 window.onload = function () {
-
-    let nowHours = new Date();
+    var nowHours = new Date();
     if (nowHours.getHours() >= 22 || nowHours.getHours() <= 5) {
         nightMode();
     } else {
@@ -31,34 +41,31 @@ window.onload = function () {
     }
 
     if (document.getElementById("musicBox")) {
-        let musicBox = document.getElementById("musicBox");
-        let inBox = document.getElementById("inBox");
-        let leftBox = document.getElementById("leftBox");
-        let rightBox = document.getElementById("rightBox");
-        let musicPlayer = document.getElementById("musicPlayer");
-        let musicControl = document.getElementById("musicControl");
+        var musicBox = document.getElementById("musicBox");
+        var inBox = document.getElementById("inBox");
+        var leftBox = document.getElementById("leftBox");
+        var rightBox = document.getElementById("rightBox");
+        var musicPlayer = document.getElementById("musicPlayer");
+        var musicControl = document.getElementById("musicControl");
     } else if (document.getElementById("centerCard")) {
         showTime();
-        setInterval(() => {
+        setInterval(function () {
             showTime();
         }, 1000);
+    } else if (document.getElementById("videoBox")) {
+        var videoBox = document.getElementById("videoBox");
     }
 }
+
 
 function nightMode() {
     container.style.backgroundColor = "rgba(33,33,33 ,1)";
     title.style.color = "white";
     icp.style.color = "white";
-    title.style.backgroundColor = "rgba(33,33,33,1)";
-    icp.style.backgroundColor = "rgba(33,33,33,1)";
 
     nightImage.setAttribute("src", "image/icon/today.png");
     meImage.setAttribute("src", "image/icon/meW.png");
-
-    if (document.getElementById("music"))
-        musicImage.setAttribute("src", "image/icon/loveFW.png");
-    else if (document.getElementById("home"))
-        homeImage.setAttribute("src", "image/icon/xW.png");
+    appsImage.setAttribute("src", "image/icon/appsW.png");
 
     nightFlag = 1;
 
@@ -67,6 +74,7 @@ function nightMode() {
         leftBox.style.color = "white";
         rightBox.style.color = "white";
         musicBox.style.boxShadow = "0 0 80px rgba(12,12,12 ,1)";
+
         if (musicFlag === 0) {
             musicControl.style.backgroundImage = "url('image/icon/play1.png')";
         } else {
@@ -76,23 +84,20 @@ function nightMode() {
         centerCard.style.boxShadow = "0 0 48px rgba(0,0,0 ,1)";
     } else if (document.getElementById("centerText")) {
         centerText.style.color = "white";
+    } else if (document.getElementById("videoBox")) {
+        videoBox.style.boxShadow = "0 0 80px rgba(12,12,12 ,1)";
     }
 }
 
 function dayMode() {
     container.style.backgroundColor = "rgba(250,250,250 ,1)";
+
     title.style.color = "black";
     icp.style.color = "black";
-    title.style.backgroundColor = "rgba(250,250,250,1)";
-    icp.style.backgroundColor = "rgba(250,250,250,1)";
 
     nightImage.setAttribute("src", "image/icon/tonight.png");
     meImage.setAttribute("src", "image/icon/meB.png");
-
-    if (document.getElementById("music"))
-        musicImage.setAttribute("src", "image/icon/loveFB.png");
-    else if (document.getElementById("home"))
-        homeImage.setAttribute("src", "image/icon/xB.png");
+    appsImage.setAttribute("src", "image/icon/appsB.png");
 
     nightFlag = 0;
 
@@ -101,6 +106,7 @@ function dayMode() {
         musicBox.style.color = "black";
         leftBox.style.color = "black";
         rightBox.style.color = "black";
+
         musicBox.style.boxShadow = "0 0 80px rgba(117,117,117 ,1)";
         if (musicFlag === 0) {
             musicControl.style.backgroundImage = "url('image/icon/play0.png')";
@@ -111,6 +117,8 @@ function dayMode() {
         centerCard.style.boxShadow = "0 0 48px rgba(224,224,224 ,1)";
     } else if (document.getElementById("centerText")) {
         centerText.style.color = "black";
+    } else if (document.getElementById("videoBox")) {
+        videoBox.style.boxShadow = "0 0 80px rgba(117,117,117 ,1)";
     }
 }
 
@@ -126,8 +134,8 @@ night.onclick = function () {
 if (document.getElementById("musicBox")) {
 
     musicBox.onmousemove = function () {
-        let shadowX = (event.clientX - (document.body.clientWidth / 2)) / 20;
-        let shadowY = -(event.clientY - (document.body.clientHeight / 2)) / 20;
+        var shadowX = (event.clientX - (document.body.clientWidth / 2)) / 20;
+        var shadowY = -(event.clientY - (document.body.clientHeight / 2)) / 20;
         musicBox.style.transform = "rotateX(" + shadowY + "deg)" + "rotateY(" + shadowX + "deg)";
     }
 
@@ -174,21 +182,21 @@ if (document.getElementById("musicBox")) {
 
 
 function showTime() {
-    let time = new Date();
-    let timeText = document.getElementById("timeText");
+    var time = new Date();
+    var timeText = document.getElementById("timeText");
 
-    let year = time.getFullYear();
-    let month = time.getMonth() + 1;
-    let day = time.getDate();
-    let hours = time.getHours();
-    let minutes = time.getMinutes();
-    let seconds = time.getSeconds();
+    var year = time.getFullYear();
+    var month = time.getMonth() + 1;
+    var day = time.getDate();
+    var hours = time.getHours();
+    var minutes = time.getMinutes();
+    var seconds = time.getSeconds();
 
-    let fullmonth = month;
-    let fullday = day;
-    let fullhours = hours;
-    let fullminutes = minutes;
-    let fullseconds = seconds;
+    var fullmonth = month;
+    var fullday = day;
+    var fullhours = hours;
+    var fullminutes = minutes;
+    var fullseconds = seconds;
 
     if (month < 10) fullmonth = "0" + month;
     if (day < 10) fullday = "0" + day;
@@ -200,16 +208,16 @@ function showTime() {
         fullday + " " + fullhours + ":" + fullminutes + ":" +
         fullseconds;
 
-    let startDate = new Date(year + "/01/01 00:00:00");
-    let nowDate = new Date(year + "/" + fullmonth + "/" + fullday + " " +
+    var startDate = new Date(year + "/01/01 00:00:00");
+    var nowDate = new Date(year + "/" + fullmonth + "/" + fullday + " " +
         fullhours + ":" + fullminutes + ":" + fullseconds)
-    let endDate = new Date((year + 1) + "/01/01 00:00:00")
-    let percent = ((nowDate - startDate) / (endDate - startDate)) * 100;
+    var endDate = new Date((year + 1) + "/01/01 00:00:00")
+    var percent = ((nowDate - startDate) / (endDate - startDate)) * 100;
 
-    let percentText = document.getElementById("percentText");
-    let progressBar = document.getElementById("progressBar");
+    var percentText = document.getElementById("percentText");
+    var progressBar = document.getElementById("progressBar");
     percentText.innerHTML = percent.toFixed(5) + "%";
-    if (document.body.clientWidth <= 600) {
+    if (document.body.clientWidth <= 800) {
         progressBar.style.height = percent.toFixed(2) + "%";
         progressBar.style.width = "100%";
     } else {
@@ -218,9 +226,89 @@ function showTime() {
     }
 
 
-    setTimeout(() => {
+    setTimeout(function () {
         timeText.style.opacity = "1";
         percentText.style.opacity = "1";
     }, 1000);
+
+}
+
+showCard();
+
+function showCard() {
+
+    me.onclick = function () {
+        meCard.style.height = "144px";
+        meCard.style.width = "108px";
+        meCard.style.opacity = "1";
+        meImage.setAttribute("src", "image/icon/meB.png");
+        meCard.style.borderRadius = "8px";
+        meCardTitle[0].style.display = "flex";
+        meCardItem[0].style.display = "flex";
+        meCardItem[1].style.display = "flex";
+
+
+        if (nightFlag) {
+            meCard.style.boxShadow = "0 0 32px rgba(24,24,24, 1)";
+        } else {
+            meCard.style.boxShadow = "0 0 16px rgba(224, 224, 224, 1)";
+        }
+    }
+
+    me.onblur = function () {
+        setTimeout(function () {
+            meCard.style.height = "40px";
+            meCard.style.width = "40px";
+            meCard.style.boxShadow = "none";
+            meCard.style.opacity = "0";
+            meCard.style.borderRadius = "24px";
+            meCardTitle[0].style.display = "none";
+            meCardItem[0].style.display = "none";
+            meCardItem[1].style.display = "none";
+
+            if (nightFlag)
+                meImage.setAttribute("src", "image/icon/meW.png");
+        }, 200);
+
+    }
+
+    apps.onclick = function () {
+        appsCard.style.height = "192px";
+        appsCard.style.width = "108px";
+        appsCard.style.opacity = "1";
+        appsImage.setAttribute("src", "image/icon/appsB.png");
+        appsCard.style.borderRadius = "8px";
+        appsCardTitle[0].style.display = "flex";
+        appsCardItem[0].style.display = "flex";
+        appsCardItem[1].style.display = "flex";
+        appsCardItem[2].style.display = "flex";
+
+        if (nightFlag) {
+            appsCard.style.boxShadow = "0 0 32px rgba(24,24,24, 1)";
+        } else {
+            appsCard.style.boxShadow = "0 0 16px rgba(224, 224, 224, 1)";
+        }
+    }
+
+
+    apps.onblur = function () {
+
+        setTimeout(function () {
+            appsCard.style.height = "40px";
+            appsCard.style.width = "40px";
+            appsCard.style.boxShadow = "none";
+            appsCard.style.opacity = "0";
+            appsCard.style.borderRadius = "24px";
+            appsCardTitle[0].style.display = "none";
+            appsCardItem[0].style.display = "none";
+            appsCardItem[1].style.display = "none";
+            appsCardItem[2].style.display = "none";
+
+            if (nightFlag)
+                appsImage.setAttribute("src", "image/icon/appsW.png");
+        }, 200)
+
+    }
+
 
 }
