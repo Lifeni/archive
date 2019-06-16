@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Lifeni">
+    <meta name="description" content="这是一个个人网站。">
+    <meta name="robots" content="none">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+
+    <link rel="shortcut icon" href="/source/image/icon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/source/image/icon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/source/css/main.css" type="text/css">
+
+    <script>
+        // 这句是用来修复 Chrome 中一个有关 transition 的 BUG
+        // 参见：https://stackoverflow.com/questions/40197386/css-transition-being-fired-upon-load-with-link-and-input-elements-chrome
+    </script>
+
+    <title>喜欢 - Lifeni</title>
+</head>
+
+<body>
+    <div class="music-container" id="container">
+        <div class="top-bar">
+            <button class="top-button" title="THEME" id="theme">
+                <img src="/source/image/icon/themeB.png" class="top-button-image" id="themeImage">
+            </button>
+            <button class="top-button" title="ME" id="me">
+                <img src="/source/image/icon/meB.png" class="top-button-image" id="meImage">
+            </button>
+            <button class="top-button" title="MORE" id="more">
+                <img src="/source/image/icon/moreB.png" class="top-button-image" id="moreImage">
+            </button>
+        </div>
+
+
+
+        <div class="music-left-box" id="musicLeftBox">
+            <p class="music-title-text">潮鳴り</p>
+            <p class="music-author-text">折戸伸治</p>
+        </div>
+        <div class="music-box" id="musicBox">
+            <div class="music-in-box" id="musicInBox">
+                <audio src="/source/audio/潮鳴り - 折戸伸治.mp3" type="audio/mp3" id="musicPlayer"></audio>
+            </div>
+        </div>
+        <div class="music-right-box" id="musicRightBox">
+            <button class="music-control" id="musicControl"></button>
+        </div>
+
+
+
+        <div class="bottom-bar" id="bottomBar">
+            <a href="/" class="bottom-bar-title" id="title" alt="Home">Lifeni</a>
+            <a href="javascript:void(0)" class="bottom-bar-about" id="about">关于这个网站</a>
+            <a href="http://www.miitbeian.gov.cn/" class="bottom-bar-ICP" id="icp" target="_blank">鲁ICP备19006085号</a>
+        </div>
+
+        <div class="about-box" id="aboutBox">
+            <div class="about-card" id="aboutCard">
+                <div class="about-title">关于这个网站</div>
+                <button class="about-close-button" id="aboutCloseButton">
+                    <img src="/source/image/icon/closeB.png" alt="X" class="about-close-image">
+                </button>
+
+                <div class="about-main">
+                    <img src="/source/image/draw/logo.png" alt="Logo" class="about-logo">
+                    <p class="about-text">
+                        https://lifeni.top<br>
+                        一个个人网站，用来学习。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="theme-card" id="themeCard">
+            <div class="theme-card-title">外观</div>
+
+            <div class="theme-card-item">
+                <button class="card-item-link" id="whiteTheme">
+                    White
+                    <div class="white-theme-color" id="whiteThemeColor">
+                        <img src="/source/image/icon/checkB.png" alt="Checked" class="theme-check">
+                    </div>
+                </button>
+            </div>
+
+            <div class="theme-card-item">
+                <button class="card-item-link" id="blackTheme">
+                    Black
+                    <div class="black-theme-color" id="blackThemeColor">
+                        <img src="/source/image/icon/checkW.png" alt="Checked" class="theme-check">
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div class="me-card" id="meCard">
+            <div class="me-card-title">我</div>
+            <div class="me-card-item">
+                <a href="mailto:liangfengning@foxmail.com" class="card-item-link">邮箱</a>
+            </div>
+            <div class="me-card-item">
+                <a href="https://github.com/Lifeni" target="_blank" class="card-item-link">Github</a>
+            </div>
+        </div>
+
+        <div class="more-card" id="moreCard">
+            <div class="more-card-title">更多</div>
+
+            <div class="more-card-item">
+                <a href="/creation" class="card-item-link">创作</a>
+            </div>
+            <div class="more-card-item">
+                <a href="/love" class="card-item-link">喜欢</a>
+            </div>
+            <div class="more-card-item">
+                <a href="/cloud" class="card-item-link">OneIndex</a>
+            </div>
+
+        </div>
+    </div>
+    <script src="/source/javascript/main.js" async></script>
+</body>
+
+</html>
