@@ -97,17 +97,17 @@ window.onload = function () {
 
 about.onclick = function () {
     aboutBox.style.display = "flex";
-    setTimeout(() => {
+    setTimeout(function () {
         aboutBox.style.opacity = "1";
         aboutCard.style.opacity = "1";
     }, 100);
-
+    
 }
 
 aboutCloseButton.onclick = function () {
     aboutCard.style.opacity = "0";
     aboutBox.style.opacity = "0";
-    setTimeout(() => {
+    setTimeout(function () {
         aboutBox.style.display = "none";
     }, 1200);
 }
@@ -221,11 +221,11 @@ function menu() {
         themeCardItem[0].style.display = "block";
         themeCardItem[1].style.display = "block";
 
-        setTimeout(() => {
+        setTimeout(function () {
             themeCardTitle[0].style.opacity = "1";
             themeCardItem[0].style.opacity = "1";
         }, 150);
-        setTimeout(() => {
+        setTimeout(function () {
             themeCardItem[1].style.opacity = "1";
         }, 300);
 
@@ -269,11 +269,11 @@ function menu() {
         meCardItem[0].style.display = "flex";
         meCardItem[1].style.display = "flex";
 
-        setTimeout(() => {
+        setTimeout(function () {
             meCardTitle[0].style.opacity = "1";
             meCardItem[0].style.opacity = "1";
         }, 150);
-        setTimeout(() => {
+        setTimeout(function () {
             meCardItem[1].style.opacity = "1";
         }, 300);
 
@@ -318,14 +318,14 @@ function menu() {
         moreCardItem[1].style.display = "flex";
         moreCardItem[2].style.display = "flex";
 
-        setTimeout(() => {
+        setTimeout(function () {
             moreCardTitle[0].style.opacity = "1";
             moreCardItem[0].style.opacity = "1";
         }, 150);
-        setTimeout(() => {
+        setTimeout(function () {
             moreCardItem[1].style.opacity = "1";
         }, 300);
-        setTimeout(() => {
+        setTimeout(function () {
             moreCardItem[2].style.opacity = "1";
         }, 450);
 
@@ -482,7 +482,7 @@ function music() {
 // --- Movie ---
 
 function movie() {
-    setInterval(() => {
+    setInterval(function () {
         if (videoPlayer.ended) {
             videoPlayer.currentTime = 0;
         }
