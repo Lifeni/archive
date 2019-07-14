@@ -62,8 +62,7 @@ main {
 }
 
 .card-fixed-400,
-.card-normal,
-.card-fixed-240 {
+.card-normal {
     position: relative;
     display: flex;
     width: 80vmin;
@@ -81,21 +80,17 @@ main {
 }
 
 .card-fixed-400:hover,
-.card-normal:hover,
-.card-fixed-240:hover {
+.card-normal:hover {
     box-shadow: 0 16px 36px rgba(0, 0, 0, .3);
 }
 
 .card-fixed-400 {
     width: 400px;
-}
-
-.card-fixed-240 {
+} {
     width: 240px;
 }
 
-.card-fixed-400 .card-content,
-.card-fixed-240 .card-content {
+.card-fixed-400 .card-content{
     overflow: auto;
 }
 
@@ -246,10 +241,9 @@ footer {
 
     .card-fixed-400,
     .card-normal {
-        width: 100vw;
-        height: calc(56.25vw + 48px);
+        width: 92vw;
+        height: calc(51.75vw + 48px);
         margin: 12px 0;
-        border-radius: 0;
     }
 
     .card-fixed-400 {
@@ -258,7 +252,6 @@ footer {
 
     .card-content {
         height: auto;
-        border-radius: 0;
     }
 
     .card-background {
