@@ -28,7 +28,7 @@ header {
     z-index: 100;
     display: flex;
     width: 100%;
-    height: 72px;
+    height: 108px;
     padding: 8px 24px;
     align-items: center;
     flex-direction: row;
@@ -61,15 +61,15 @@ main {
     flex-wrap: nowrap;
 }
 
-.card-small,
+.card-fixed-400,
 .card-normal,
-.card-nano {
+.card-fixed-240 {
     position: relative;
     display: flex;
     width: 80vmin;
     height: calc(45vmin + 48px);
-    max-width: 1328px;
-    max-height: 720px;
+    max-width: 1280px;
+    max-height: 768px;
     margin: 12px;
     border-radius: 4px;
     box-shadow: 0 12px 24px rgba(0, 0, 0, .15);
@@ -80,22 +80,22 @@ main {
     transition: all .5s cubic-bezier(0, 0, 0, 1);
 }
 
-.card-small:hover,
+.card-fixed-400:hover,
 .card-normal:hover,
-.card-nano:hover {
+.card-fixed-240:hover {
     box-shadow: 0 16px 36px rgba(0, 0, 0, .3);
 }
 
-.card-small {
+.card-fixed-400 {
     width: 400px;
 }
 
-.card-nano {
+.card-fixed-240 {
     width: 240px;
 }
 
-.card-small .card-content,
-.card-nano .card-content {
+.card-fixed-400 .card-content,
+.card-fixed-240 .card-content {
     overflow: auto;
 }
 
@@ -144,50 +144,53 @@ main {
     border-radius: inherit;
 }
 
+.card-background {
+    position: absolute;
+    right: 40px;
+    bottom: 0;
+    width: 180px;
+    pointer-events: none;
+}
+
 .text-404 {
     margin: 24px;
     color: black;
-    font-size: 8vmin;
+    font-size: 14vmin;
     font-family: '思源宋体 CN', 'Source Han Serif', serif;
-    text-shadow: 0 0 16px rgba(0, 0, 0, .15);
-}
-
-.text-right {
-    text-align: right;
 }
 
 article {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
-    padding: 6px 24px 12px 24px;
-    border-radius: 8px;
+    height: auto;
+    padding: 0 24px 24px 24px;
+    background-color: white;
+    border-radius: 0 0 4px 4px;
     font-family: '思源宋体 CN', 'Source Han Serif', serif;
 }
 
 h1,
 h2 {
-    font-size: 22px;
+    margin: 24px 0 18px 0;
+    font-size: 16px;
 }
 
 p {
     font-size: 16px;
 }
 
-
-table {
-    position: relative;
-    padding: 24px 8px;
-    font-size: 16px;
-    font-family: '思源宋体 CN', 'Source Han Serif', serif;
+a {
+    margin: 4px;
+    padding: 8px 16px;
+    background-color: #F5F5F5;
+    border-radius: 4px;
+    color: black;
+    text-decoration: none;
+    transition: all .5s cubic-bezier(0, 0, 0, 1);
 }
 
-th,
-td {
-    border: solid 2px #F5F5F5;
-    padding: 8px 8px;
-    text-align: center;
+a:hover {
+    background-color: #EEEEEE;
 }
 
 footer {
@@ -197,19 +200,20 @@ footer {
     z-index: 100;
     display: flex;
     width: 100%;
-    height: 72px;
+    height: 84px;
     padding: 8px 24px;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.copyright,
-.link-about,
-.link-icp {
-    margin: 8px;
+
+.footer-link {
+    margin: 0 8px;
+    padding: 4px 8px;
     opacity: .3;
     color: black;
+    background-color: transparent;
     font-size: 12px;
     text-decoration: none;
     transition: .3s ease-in-out;
@@ -217,10 +221,9 @@ footer {
     -moz-user-select: none;
 }
 
-.copyright:hover,
-.link-about:hover,
-.link-icp:hover {
+.footer-link:hover {
     opacity: 1;
+    background-color: transparent;
 }
 
 @media screen and (max-width:480px) {
@@ -237,26 +240,29 @@ footer {
     }
 
     main {
-        padding: 64px 0;
+        padding: 96px 0 84px 0;
         flex-direction: column;
     }
 
-    .card-small,
-    .card-normal,
-    .card-nano {
+    .card-fixed-400,
+    .card-normal {
         width: 100vw;
         height: calc(56.25vw + 48px);
         margin: 12px 0;
         border-radius: 0;
     }
 
-    .card-content{
+    .card-fixed-400 {
+        height: auto;
+    }
+
+    .card-content {
+        height: auto;
         border-radius: 0;
     }
 
-    th,
-    td {
-        padding: 8px 16px;
+    .card-background {
+        width: 160px;
     }
 }
 
