@@ -7,6 +7,7 @@ body {
     display: inline-block;
     height: auto;
     min-width: 300px;
+    min-height: 400px;
     margin: 0;
     background-color: #F5F5F5;
     overflow-x: auto;
@@ -25,136 +26,135 @@ header {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 100;
+    z-index: 5;
     display: flex;
-    width: 100%;
+    align-items: center;
+    width: auto;
     height: 108px;
     padding: 8px 24px;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
+    opacity: 1;
+    transition: all .3s cubic-bezier(0, 0, 0, 1);
 }
 
 .header-title {
-    margin: 8px;
+    height: 18px;
+    margin: 8px 16px;
+    pointer-events: none;
     user-select: none;
     -moz-user-select: none;
-    cursor: pointer;
 }
 
-.link-home {
-    font-size: 20px;
-    color: black;
-    text-decoration: none;
-}
 
 main {
     position: relative;
     display: flex;
+    z-index: 2;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
     min-width: 100vw;
     min-height: 100vh;
     width: 100%;
     padding: 16px;
-    align-items: center;
-    background-color: #F5F5F5;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    opacity: 1;
 }
 
-.card-fixed-400,
-.card-normal {
+.card {
     position: relative;
+    z-index: 10;
     display: flex;
-    width: 80vmin;
-    height: calc(45vmin + 48px);
-    max-width: 1280px;
-    max-height: 768px;
+    align-items: center;
+    flex-direction: column;
+    flex-shrink: 0;
     margin: 12px;
     border-radius: 4px;
     box-shadow: 0 12px 24px rgba(0, 0, 0, .15);
     background-color: white;
-    flex-direction: column;
-    flex-shrink: 0;
-    align-items: center;
-    transition: all .5s cubic-bezier(0, 0, 0, 1);
+    transition: all .3s cubic-bezier(0, 0, 0, 1);
 }
 
-.card-fixed-400:hover,
-.card-normal:hover {
+.card:hover {
     box-shadow: 0 16px 36px rgba(0, 0, 0, .3);
 }
 
-.card-fixed-400 {
-    width: 400px;
-} {
-    width: 240px;
+#cardAbout {
+    width: calc(45vmin + 48px);
+    height: calc(45vmin + 48px);
+    min-width: 240px;
+    min-height: 48px;
+    max-width: 768px;
+    max-height: 768px;
 }
 
-.card-fixed-400 .card-content{
-    overflow: auto;
+#cardNote {
+    width: calc(30vmin + 48px);
+    height: calc(45vmin + 48px);
+    min-width: 240px;
+    min-height: 48px;
+    max-width: 480px;
+    max-height: 768px;
+}
+
+#cardVideo {
+    width: 80vmin;
+    height: calc(45vmin + 48px);
+    min-width: 240px;
+    min-height: 48px;
+    max-width: 1280px;
+    max-height: 768px;
 }
 
 .card-title {
     position: relative;
+    z-index: 20;
     display: flex;
-    width: 100%;
-    height: 48px;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+    height: 48px;
     border-radius: 4px 4px 0 0;
-    z-index: 10;
 }
 
-.card-title-text-left,
-.card-title-text-right {
-    margin: 0 8px;
+.card-title-text,
+.card-title-button {
+    margin: 0 4px;
     padding: 4px 8px;
-    font-size: 20px;
-    font-family: '思源宋体 CN', 'Source Han Serif', serif;
     border-radius: 4px;
+    font-size: 18px;
+    font-family: '思源宋体 CN', 'Source Han Serif', serif;
     white-space: nowrap;
     overflow: hidden;
 }
 
-.card-title-text-left {
+.card-title-button-area {
+    padding: 8px;
+}
+
+.card-title-button {
+    border: 0;
     font-size: 16px;
     background-color: #F5F5F5;
+    cursor: pointer;
+    transition: all .5s cubic-bezier(0, 0, 0, 1);
+}
+
+.card-title-button:hover {
+    background-color: #EEEEEE;
 }
 
 .card-content {
     position: relative;
     display: flex;
-    width: 100%;
-    height: calc(100% - 48px);
     align-items: center;
     flex-direction: column;
+    width: 100%;
+    height: calc(100% - 48px);
     border-radius: 0 0 4px 4px;
     background-color: white;
-    font-family: '思源宋体 CN', 'Source Han Serif', serif;
+    overflow: auto;
 }
 
-.card-video {
-    width: 100%;
-    height: 100%;
-    border-radius: inherit;
-}
-
-.card-background {
-    position: absolute;
-    right: 40px;
-    bottom: 0;
-    width: 180px;
-    pointer-events: none;
-}
-
-.text-404 {
-    margin: 24px;
-    color: black;
-    font-size: 14vmin;
-    font-family: '思源宋体 CN', 'Source Han Serif', serif;
-}
-
-article {
+.card-about {
     position: relative;
     width: 100%;
     height: auto;
@@ -164,17 +164,17 @@ article {
     font-family: '思源宋体 CN', 'Source Han Serif', serif;
 }
 
-h1,
-h2 {
+.card-about-title {
     margin: 24px 0 18px 0;
     font-size: 16px;
+    font-weight: bold;
 }
 
-p {
+.card-about-content {
     font-size: 16px;
 }
 
-a {
+.card-about-link {
     margin: 4px;
     padding: 8px 16px;
     background-color: #F5F5F5;
@@ -184,22 +184,79 @@ a {
     transition: all .5s cubic-bezier(0, 0, 0, 1);
 }
 
-a:hover {
+.card-about-link:hover {
     background-color: #EEEEEE;
+}
+
+.card-about-image {
+    position: absolute;
+    right: 70px;
+    bottom: 10px;
+    width: 150px;
+    pointer-events: none;
+}
+
+.card-note-list {
+    width: 100%;
+    margin: 0;
+    padding: 8px 12px;
+}
+
+.card-note-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 4px 0;
+    padding: 8px;
+    list-style-type: none;
+    background-color: white;
+    font-size: 16px;
+    font-family: '思源宋体 CN', 'Source Han Serif', serif;
+    transition: all .5s cubic-bezier(0, 0, 0, 1);
+}
+
+.card-note-list-item:hover {
+    background-color: #F5F5F5
+}
+
+.card-note-list-item-time {
+    color: rgba(0, 0, 0, .5);
+    font-size: 12px;
+}
+
+.card-note-link {
+    color: black;
+    text-decoration: none;
+}
+
+.card-video {
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 4px 4px;
+}
+
+.text-404 {
+    margin: 24px;
+    color: black;
+    font-size: 14vmin;
+    font-family: '思源宋体 CN', 'Source Han Serif', serif;
 }
 
 footer {
     position: absolute;
     bottom: 0;
     left: 0;
-    z-index: 100;
+    z-index: 5;
     display: flex;
-    width: 100%;
-    height: 84px;
-    padding: 8px 24px;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
+    width: auto;
+    height: 84px;
+    padding: 8px 24px;
+    opacity: 1;
+    transition: all .3s cubic-bezier(0, 0, 0, 1);
 }
 
 
@@ -211,14 +268,53 @@ footer {
     background-color: transparent;
     font-size: 12px;
     text-decoration: none;
-    transition: .3s ease-in-out;
     user-select: none;
     -moz-user-select: none;
+    transition: all .5s cubic-bezier(0, 0, 0, 1);
 }
 
 .footer-link:hover {
     opacity: 1;
     background-color: transparent;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://s2.ax1x.com/2019/07/18/ZOYMkT.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(15px);
+    opacity: 0;
+    transition: all .3s cubic-bezier(0, 0, 0, 1);
+}
+
+.background-source {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 20;
+    padding: 4px 8px;
+    background: rgba(0, 0, 0, .8);
+    color: white;
+    opacity: 0;
+    transition: all .3s cubic-bezier(0, 0, 0, 1);
+}
+
+.background-source a {
+    z-index: 20;
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.background-source a:hover {
+    text-decoration: underline white;
 }
 
 @media screen and (max-width:480px) {
@@ -239,36 +335,28 @@ footer {
         flex-direction: column;
     }
 
-    .card-fixed-400,
-    .card-normal {
-        width: 92vw;
-        height: calc(51.75vw + 48px);
-        margin: 12px 0;
+    .card {
+        width: 92vw !important;
+        height: calc(51.75vw + 48px) !important;
+        margin: 12px 0 !important;
     }
 
-    .card-fixed-400 {
-        height: auto;
+    #cardAbout,
+    #cardNote {
+        height: auto !important;
     }
 
     .card-content {
         height: auto;
     }
 
-    .card-background {
-        width: 160px;
-    }
-}
-
-@keyframes bg-change {
-    0% {
-        background-position: 0% 50%
+    .card-about-image {
+        right: 40px;
+        width: 120px;
     }
 
-    50% {
-        background-position: 100% 50%
+    .background {
+        display: none;
     }
 
-    100% {
-        background-position: 0% 50%
-    }
 }
