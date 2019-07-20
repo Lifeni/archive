@@ -95,7 +95,7 @@ main {
     max-height: 768px;
 }
 
-#cardVideo {
+#cardWorks {
     width: 80vmin;
     height: calc(45vmin + 48px);
     min-width: 240px;
@@ -190,9 +190,9 @@ main {
 
 .card-about-image {
     position: absolute;
-    right: 70px;
-    bottom: 10px;
-    width: 150px;
+    right: 10%;
+    bottom: 0;
+    width: 40%;
     pointer-events: none;
 }
 
@@ -317,6 +317,12 @@ footer {
     text-decoration: underline white;
 }
 
+@media screen and (max-width:300px) {
+    .card-about-image {
+        opacity: 0;
+    }
+}
+
 @media screen and (max-width:480px) {
 
     html,
@@ -348,11 +354,6 @@ footer {
 
     .card-content {
         height: auto;
-    }
-
-    .card-about-image {
-        right: 40px;
-        width: 120px;
     }
 
     .background {
