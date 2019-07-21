@@ -54,6 +54,27 @@ function hideBackground() {
     displayFlag = 0;
 }
 
+document.addEventListener("mousewheel", scrollPage);
+document.addEventListener("DOMMouseScroll", scrollPage);
+
+// 横向滚动
+function scrollPage() { 
+    if (event.wheelDelta) {
+        if (event.wheelDelta > 0) {
+            document.documentElement.scrollLeft -= 540;
+        } else {
+            document.documentElement.scrollLeft += 540;
+        }
+    }
+    if (event.detail) {
+        if (event.detail > 0) {
+            document.documentElement.scrollLeft += 360;
+        } else {
+            document.documentElement.scrollLeft -= 360;
+        }
+    }
+}
+
 
 /*
 // div 随鼠标移动代码
