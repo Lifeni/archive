@@ -22,105 +22,42 @@
 
 <body>
     <div class="container" id="container">
-        <header id="header">
+        <header>
             <img src="/image/lifeni.svg" class="header-title">
         </header>
-        <main id="main">
-            <div class="card" id="cardAbout">
-                <div class="card-title">
-                    <p class="card-title-text">这个网站</p>
-                    <div class="card-title-button-area">
-                        <button class="card-title-button">关于</button>
-                        <!-- <button class="card-title-button">统计</button> -->
-                    </div>
-                </div>
-                <div class="card-content">
-                    <div class="card-about">
-                        <p class="card-about-title">关于这个网站</p>
-                        <p class="card-about-content">本网站（lifeni.top）仅用于学习交流用途。</p>
-                        <p class="card-about-content">如有侵权请与我联系。</p>
-                        
-                        <p class="card-about-title">联系方式</p>
-                        <p class="card-about-content">
-                            <a href="mailto:liangfengning@foxmail.com" class="card-about-link">邮箱</a>
-                        </p>
 
-                        <p class="card-about-title">另外一些链接</p>
-                        <p class="card-about-content">
-                            <a href="https://github.com/Lifeni" class="card-about-link">Github</a>
-                            <a href="https://www.yuque.com/lifeni" class="card-about-link">语雀</a>
-                        </p>
+        <main>
+            <div class="card card-less">
+                <img src="/image/typewriter-min.jpg" alt= "《紫罗兰永恒花园》中的打字机" title="《紫罗兰永恒花园》中的打字机" class="card-image">
+                <div class="card-text">
+                    <span class="card-title">笔记</span>
+                    <span class="card-button card-button-less"></span>
+                </div>
+            </div>
+            <div class="card card-less">
+                <img src="/image/drawing-min.jpg" alt="《你的名字。》中泷的绘画" title="《你的名字。》中泷的绘画" class="card-image">
+                <div class="card-text">
+                    <span class="card-title">作品</span>
+                    <span class="card-button card-button-less"></span>
+                </div>
+            </div>
+            <div class="card card-less">
+                <img src="/image/love-min.jpg" alt="《莉兹与青鸟》中霙和希美的拥抱" title="《莉兹与青鸟》中霙和希美的拥抱" class="card-image">
+                <div class="card-text">
+                    <span class="card-title">喜欢</span>
+                    <span class="card-button card-button-less"></span>
+                </div>
+            </div>
 
-                        <img src="/image/me.svg" alt="Me" class="card-about-image" id="cardAboutImage">
-                    </div>
-                </div>
-            </div>
-            <div class="card" id="cardNote">
-                <div class="card-title">
-                    <p class="card-title-text">笔记</p>
-                    <div class="card-title-button-area">
-                        <button class="card-title-button">算法</button>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <ul class="card-note-list">
-                            <a href="/note/冒泡排序.html" class="card-note-link">
-                                <li class="card-note-list-item">
-                                    <span class="card-note-list-item-title">冒泡排序</span>
-                                    <span class="card-note-list-item-time">2019-07-18</span>
-                                </li>
-                            </a>
-                        <a href="/note/插入排序.html" class="card-note-link">
-                            <li class="card-note-list-item">
-                                <span class="card-note-list-item-title">插入排序</span>
-                                <span class="card-note-list-item-time">2019-07-17</span>
-                            </li>
-                        </a>
-                        <a href="/note/选择排序.html" class="card-note-link">
-                            <li class="card-note-list-item">
-                                <span class="card-note-list-item-title">选择排序</span>
-                                <span class="card-note-list-item-time">2019-07-17</span>
-                            </li>
-                        </a>
-                        <a href="/note/快速排序.html" class="card-note-link">
-                            <li class="card-note-list-item">
-                                <span class="card-note-list-item-title">快速排序</span>
-                                <span class="card-note-list-item-time">2019-07-16</span>
-                            </li>
-                        </a>
-                    </ul>
-                </div>
-            </div>
-            <div class="card" id="cardWorks">
-                <div class="card-title">
-                    <p class="card-title-text">作品</p>
-                    <div class="card-title-button-area">
-                        <button class="card-title-button">《春》</button>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <video src="/video/春.mp4" poster="/video/春.jpg" controls class="card-video">你的浏览器不支持 HTML5
-                        视频播放。</video>
-                </div>
-            </div>
-            <div class="background" id="background">
-                <div class="background-source" id="backgroundSource">
-                    <a href="https://www.pixiv.net/member_illust.php?mode=medium&illust_id=70977889"
-                        target="_blank">Pixiv</a> @
-                    <a href="https://www.pixiv.net/member.php?id=2642047" target="_blank">アシマ / Ashima</a>
-                </div>
-            </div>
+            <div class="main-mask"></div>
         </main>
 
-        <footer id="footer">
-            <a href="https://lifeni.github.io/WhereAreWeFrom/" class="footer-link">我们从哪来</a>
-            <a href="/cloud/" class="footer-link">OneIndex</a>
+        <footer>
             <a href="http://www.miitbeian.gov.cn/" class="footer-link" target="_blank"
                 title="鲁ICP备19006085号">鲁ICP备19006085号</a>
         </footer>
-
-
     </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <script src="/javascript/main.js"></script>
 </body>
 

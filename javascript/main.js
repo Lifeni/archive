@@ -1,64 +1,73 @@
-let header = document.getElementById("header");
-let main = document.getElementById("main");
-let footer = document.getElementById("footer");
+$(function () {
+    // 添加 ID
+    $(".card").each(function () {
+        $(this).attr("id", "card-" + $(this).index());
+    })
 
-let card = document.getElementsByClassName("card");
-
-let background = document.getElementById("background");
-let backgroundSource = document.getElementById("backgroundSource");
-let displayFlag = 0;
-
-window.onresize = function () {
-    let width = document.documentElement.clientWidth;
-    if (width < 480) {
-        hideBackground();
+    // 卡片反转动画
+    for (var i = 0; i < $(".card").length; i++) {
+        $("#card-" + i).css({
+            "opacity": "1",
+            "animation": "show-card " + (0.3 + i * 0.2) + "s",
+        })
     }
-}
 
-background.onclick = function () {
-    displayFlag === 0 ? showBackground() : hideBackground();
-}
+    // 获取 Github 上的数据
+    /*
+    $.getJSON("https://api.github.com/repos/Lifeni/lifeni-notes/contents", function (notebook) {
+        var noteNum = 0
+        for (var i = 0; i < notebook.length; i++) {
+            $.getJSON(notebook[i].url, function (note) {
+                noteNum += note.length;
+                $("#notes-info").text(notebook.length + " 个笔记本和 " + noteNum + " 个笔记");
+            })
+        }
+    })*/
+})
 
-document.body.onload = function () {
-    if (document.documentElement.clientWidth > 480) {
-        background.style.opacity = "1";
+var opened = 0;
+// 展开和折叠卡片
+$(".card-image").click(function(){
+    // 打开当前
+    $(this).parents(".card").removeClass("card-less").addClass("card-more");
+    $(this).parents(".card").find(".card-image").hide();
+    $(this).parents(".card").find(".card-button").removeClass("card-button-less").addClass("card-button-more");
+    $(".main-mask").css("z-index","3");
+    opened = 1;
+});
+$(".card-text").click(function(){
+    if (opened) {
+        // 关闭当前
+        $(this).parents(".card").removeClass("card-more").addClass("card-less");
+        $(this).parents(".card").find(".card-image").show();
+        $(this).parents(".card").find(".card-button").removeClass("card-button-more").addClass("card-button-less");
+        $(".main-mask").css("z-index","0");
+        opened = 0;
+    } else {
+        // 打开当前
+        $(this).parents(".card").removeClass("card-less").addClass("card-more");
+        $(this).parents(".card").find(".card-image").hide();
+        $(this).parents(".card").find(".card-button").removeClass("card-button-less").addClass("card-button-more");
+        $(".main-mask").css("z-index","3");
+        opened = 1;
     }
-}
+});
+$(".main-mask").click(function(){
+    $(".card").removeClass("card-more").addClass("card-less");
+    $(".card").find(".card-image").show();
+    $(".card").find(".card-button").removeClass("card-button-more").addClass("card-button-less");
+    $(".main-mask").css("z-index","0");
+    opened = 0;
+})
 
-function showBackground() {
-    header.style.opacity = "0";
-    footer.style.opacity = "0";
-    backgroundSource.style.opacity = "1";
-    for (let i = 0; i < card.length; i++) {
-        card[i].style.opacity = "0";
-    }
-    setTimeout(() => {
-        main.style.zIndex = "20";
-        background.style.zIndex = "20";
-    }, 300);
-
-    background.style.filter = "blur(0)";
-    displayFlag = 1;
-}
-
-function hideBackground() {
-    main.style.zIndex = "2";
-    background.style.zIndex = "2";
-    header.style.opacity = "1";
-    footer.style.opacity = "1";
-    backgroundSource.style.opacity = "0";
-    for (let i = 0; i < card.length; i++) {
-        card[i].style.opacity = 1;
-    }
-    background.style.filter = "blur(15px)";
-    displayFlag = 0;
-}
-
+// 横向滚动
 document.addEventListener("mousewheel", scrollPage);
 document.addEventListener("DOMMouseScroll", scrollPage);
 
-// 横向滚动
-function scrollPage() { 
+function scrollPage() {
+    if ($("windows").width < 480) {
+        return;
+    }
     if (event.wheelDelta) {
         if (event.wheelDelta > 0) {
             document.documentElement.scrollLeft -= 540;
@@ -74,19 +83,3 @@ function scrollPage() {
         }
     }
 }
-
-
-/*
-// div 随鼠标移动代码
-if (document.getElementById("card")) {
-    main.onmousemove = function () {
-        var card = document.getElementById("card");
-        var moveX = (event.clientX - (document.body.clientWidth / 2)) / 200;
-        var moveY = (event.clientY - (document.body.clientHeight / 2)) / 200;
-
-        card.style.transform = "translate(" + moveX + "px," + moveY + "px)";
-        // console.log(moveX + " " + moveY);
-        // console.log(card.style.transform);
-    }
-}
-*/
