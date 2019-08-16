@@ -55,7 +55,7 @@ main {
     perspective: 1000px;
 }
 
-.main-mask{
+.main-mask {
     position: absolute;
     top: 0;
     left: 0;
@@ -81,7 +81,6 @@ main {
     background-color: white;
     transition: all .4s cubic-bezier(0, 0, 0, 1);
     overflow: hidden;
-    cursor: pointer;
 }
 
 .card-less:hover {
@@ -123,14 +122,21 @@ main {
     font-family: '思源宋体 CN', 'Source Han Serif', serif;
     transition: all .4s cubic-bezier(0, 0, 0, 1);
 }
-
+.card-info {
+    color: black;
+    font-size: 16px;
+    font-family: '思源宋体 CN', 'Source Han Serif', serif;
+    transition: all .4s cubic-bezier(0, 0, 0, 1);
+}
 .card-button {
     width: 36px;
     height: 36px;
+    border: none;
     background-size: 100%;
     background-repeat: no-repeat;
     background-color: transparent;
     transition: all .4s cubic-bezier(0, 0, 0, 1);
+    cursor: pointer;
 }
 
 .card-button-less {
@@ -181,10 +187,22 @@ footer {
     opacity: 1;
 }
 
-.tips{
+.tips {
     margin: 24px;
     font-size: 128px;
     font-family: 'Courier New', Courier, monospace;
+}
+
+@keyframes show-card {
+    from {
+        opacity: 0;
+        transform: rotate3d(0, 1, 0, 10deg) scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotate3d(0, 0, 0) scale(1);
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -218,7 +236,7 @@ footer {
     .card-image {
         width: 100%;
         height: auto;
-        transform: scale(1) !important;
+        transform: scale(1);
         transition: all .3s cubic-bezier(0, 0, 0, 1);
     }
 
@@ -237,6 +255,10 @@ footer {
         font-weight: bold;
     }
 
+    .card-info {
+        font-size: 3vw;
+    }
+
     .card-button {
         right: 4vw;
         bottom: 4vw;
@@ -252,7 +274,7 @@ footer {
         background-image: url("/image/less.svg");
     }
 
-    .tips{
+    .tips {
         font-size: 72px;
     }
 
@@ -261,16 +283,15 @@ footer {
         height: 88vw;
     }
 
-}
+    @keyframes show-card {
+        from {
+            opacity: 0;
+            transform: rotate3d(1, 0, 0, -10deg) scale(.9);
+        }
 
-@keyframes show-card {
-    from {
-        opacity: 0;
-        transform: rotateY(15deg) scale(.9);
-    }
-
-    to {
-        opacity: 1;
-        transform: rotateY(0) scale(1);
+        to {
+            opacity: 1;
+            transform: rotate3d(0, 0, 0) scale(1);
+        }
     }
 }

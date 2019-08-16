@@ -1,62 +1,67 @@
 $(function () {
-    // 添加 ID
-    $(".card").each(function () {
-        $(this).attr("id", "card-" + $(this).index());
-    })
+
+    $(".card-info").hide();
 
     // 卡片反转动画
-    for (var i = 0; i < $(".card").length; i++) {
-        $("#card-" + i).css({
+    var i = 0;
+    $(".card").each(function () {
+        $(this).css({
             "opacity": "1",
             "animation": "show-card " + (0.3 + i * 0.2) + "s",
-        })
-    }
+        });
+        i++;
+    });
 
     // 获取 Github 上的数据
-    /*
+
     $.getJSON("https://api.github.com/repos/Lifeni/lifeni-notes/contents", function (notebook) {
-        var noteNum = 0
-        for (var i = 0; i < notebook.length; i++) {
+        var notebookNum = notebook.length;
+        var noteNum = 0;
+        for (var i = 0; i < notebookNum; i++) {
             $.getJSON(notebook[i].url, function (note) {
                 noteNum += note.length;
-                $("#notes-info").text(notebook.length + " 个笔记本和 " + noteNum + " 个笔记");
+                $("#info-notes").text(notebookNum + " 个笔记本和 " + noteNum + " 个笔记");
             })
         }
-    })*/
+    })
 })
 
 var opened = 0;
 // 展开和折叠卡片
-$(".card-image").click(function(){
+$(".card-image").click(function () {
     // 打开当前
     $(this).parents(".card").removeClass("card-less").addClass("card-more");
     $(this).parents(".card").find(".card-image").hide();
+    $(this).parents(".card").find(".card-info").show();
     $(this).parents(".card").find(".card-button").removeClass("card-button-less").addClass("card-button-more");
-    $(".main-mask").css("z-index","3");
+    $(".main-mask").css("z-index", "3");
     opened = 1;
 });
-$(".card-text").click(function(){
+$(".card-text").click(function () {
     if (opened) {
         // 关闭当前
         $(this).parents(".card").removeClass("card-more").addClass("card-less");
         $(this).parents(".card").find(".card-image").show();
+        $(this).parents(".card").find(".card-info").hide();
         $(this).parents(".card").find(".card-button").removeClass("card-button-more").addClass("card-button-less");
-        $(".main-mask").css("z-index","0");
+        $(".main-mask").css("z-index", "0");
         opened = 0;
     } else {
         // 打开当前
         $(this).parents(".card").removeClass("card-less").addClass("card-more");
         $(this).parents(".card").find(".card-image").hide();
+        $(this).parents(".card").find(".card-info").show();
         $(this).parents(".card").find(".card-button").removeClass("card-button-less").addClass("card-button-more");
-        $(".main-mask").css("z-index","3");
+        $(".main-mask").css("z-index", "3");
         opened = 1;
     }
 });
-$(".main-mask").click(function(){
+$(".main-mask").click(function () {
     $(".card").removeClass("card-more").addClass("card-less");
     $(".card").find(".card-image").show();
+    $(".card").find(".card-info").hide();
     $(".card").find(".card-button").removeClass("card-button-more").addClass("card-button-less");
-    $(".main-mask").css("z-index","0");
+    $(".main-mask").css("z-index", "0");
     opened = 0;
 })
 
