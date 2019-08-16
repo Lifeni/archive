@@ -1,7 +1,7 @@
 $(function () {
 
     $(".card-info").hide();
-
+    $(".card-content").hide();
     // 卡片反转动画
     var i = 0;
     $(".card").each(function () {
@@ -13,7 +13,7 @@ $(function () {
     });
 
     // 获取 Github 上的数据
-
+/*
     $.getJSON("https://api.github.com/repos/Lifeni/lifeni-notes/contents", function (notebook) {
         var notebookNum = notebook.length;
         var noteNum = 0;
@@ -23,7 +23,11 @@ $(function () {
                 $("#info-notes").text(notebookNum + " 个笔记本和 " + noteNum + " 个笔记");
             })
         }
-    })
+    })*/
+
+    if($(".card-content").text() == ""){
+        $(".card-content").css("background-image","url('/image/null.png')")
+    }
 })
 
 var opened = 0;
@@ -32,17 +36,17 @@ $(".card-image").click(function () {
     // 打开当前
     $(this).parents(".card").removeClass("card-less").addClass("card-more");
     $(this).parents(".card").find(".card-image").hide();
-    $(this).parents(".card").find(".card-info").show();
+    $(this).parents(".card").find(".card-info,.card-content").show();
     $(this).parents(".card").find(".card-button").removeClass("card-button-less").addClass("card-button-more");
     $(".main-mask").css("z-index", "3");
     opened = 1;
 });
-$(".card-text").click(function () {
+$(".card-bar").click(function () {
     if (opened) {
         // 关闭当前
         $(this).parents(".card").removeClass("card-more").addClass("card-less");
         $(this).parents(".card").find(".card-image").show();
-        $(this).parents(".card").find(".card-info").hide();
+        $(this).parents(".card").find(".card-info,.card-content").hide();
         $(this).parents(".card").find(".card-button").removeClass("card-button-more").addClass("card-button-less");
         $(".main-mask").css("z-index", "0");
         opened = 0;
@@ -50,7 +54,7 @@ $(".card-text").click(function () {
         // 打开当前
         $(this).parents(".card").removeClass("card-less").addClass("card-more");
         $(this).parents(".card").find(".card-image").hide();
-        $(this).parents(".card").find(".card-info").show();
+        $(this).parents(".card").find(".card-info,.card-content").show();
         $(this).parents(".card").find(".card-button").removeClass("card-button-less").addClass("card-button-more");
         $(".main-mask").css("z-index", "3");
         opened = 1;
@@ -59,7 +63,7 @@ $(".card-text").click(function () {
 $(".main-mask").click(function () {
     $(".card").removeClass("card-more").addClass("card-less");
     $(".card").find(".card-image").show();
-    $(".card").find(".card-info").hide();
+    $(".card").find(".card-info,.card-content").hide();
     $(".card").find(".card-button").removeClass("card-button-more").addClass("card-button-less");
     $(".main-mask").css("z-index", "0");
     opened = 0;
