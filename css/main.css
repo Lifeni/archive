@@ -357,9 +357,14 @@ footer {
         height: auto;
     }
 
+<<<<<<< Updated upstream
     .background {
         opacity: 0;
         display: none;
+=======
+    .tips {
+        font-size: 52px;
+>>>>>>> Stashed changes
     }
 
 }
