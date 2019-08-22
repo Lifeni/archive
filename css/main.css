@@ -24,13 +24,13 @@ header {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 5;
+    z-index: 10;
     width: auto;
-    height: 108px;
+    height: 96px;
     padding: 8px 24px;
     display: flex;
     align-items: center;
-    transition: all .3s cubic-bezier(0, 0, 0, 1);
+    transition: all .4s cubic-bezier(0, 0, 0, 1);
 }
 
 .header-title {
@@ -42,36 +42,59 @@ header {
     -moz-user-select: none;
 }
 
+address {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    width: auto;
+    height: 96px;
+    padding: 8px 24px;
+    display: flex;
+    align-items: center;
+    transition: all .4s cubic-bezier(0, 0, 0, 1);
+}
+
+.address-link {
+    margin: 2px;
+    border-radius: 36px;
+    color: black;
+    text-decoration: none;
+
+}
+
+.address-icon {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    border-radius: 48px;
+    transition: all .4s cubic-bezier(0, 0, 0, 1);
+}
+
+.address-icon:hover {
+    background-color: rgba(0, 0, 0, .1);
+}
+
 main {
     position: relative;
-    z-index: 10;
+    z-index: 5;
     min-width: 100vw;
     min-height: 100vh;
     padding: 16px;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: row;
     flex-wrap: nowrap;
     perspective: 1000px;
 }
 
-.main-mask {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-}
-
 .card {
     position: relative;
     z-index: 1;
-    width: 400px;
-    height: 300px;
     margin: 12px;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
     flex-shrink: 0;
@@ -83,13 +106,21 @@ main {
     overflow: hidden;
 }
 
-.card-less:hover {
-    width: 480px;
-    height: 300px;
+.card:hover {
     box-shadow: 0 16px 36px rgba(0, 0, 0, .3);
 }
 
-.card-image {
+.card-home {
+    width: 400px;
+    height: 300px;
+}
+
+.card-home:hover {
+    width: 480px;
+    height: 300px;
+}
+
+.card-home-image {
     position: absolute;
     left: 0;
     top: 0;
@@ -98,11 +129,11 @@ main {
     transition: all .4s cubic-bezier(0, 0, 0, 1);
 }
 
-.card-less:hover .card-image {
+.card-home:hover .card-home-image {
     transform: scale(1.1);
 }
 
-.card-bar {
+.card-home-bar {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -115,7 +146,7 @@ main {
     justify-content: space-between;
 }
 
-.card-title {
+.card-home-title {
     color: black;
     font-size: 32px;
     font-weight: bold;
@@ -123,69 +154,107 @@ main {
     transition: all .4s cubic-bezier(0, 0, 0, 1);
 }
 
-.card-info {
+.card-home-info {
     color: black;
     font-size: 16px;
     font-family: '思源宋体 CN', 'Source Han Serif', serif;
     transition: all .4s cubic-bezier(0, 0, 0, 1);
 }
 
-.card-button {
+.card-home-button {
     width: 36px;
     height: 36px;
     border: none;
+    background-image: url("/image/focus.svg");
     background-size: 100%;
     background-repeat: no-repeat;
     background-color: transparent;
     transition: all .4s cubic-bezier(0, 0, 0, 1);
     cursor: pointer;
+
 }
 
-.card-button-less {
-    background-image: url("/image/focus.svg");
-}
-
-.card-button-more {
-    background-image: url("/image/close.svg");
-}
-
-.card-more {
-    width: 640px;
-    height: 480px;
-    z-index: 5;
-}
-
-.card-content {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 640px;
+.card-notes {
+    width: 300px;
     height: 400px;
-    padding: 16px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    transition: all .4s cubic-bezier(0, 0, 0, 1);
 }
 
-footer {
+.card-notes-title {
+    width: 100%;
+    height: 72px;
+    padding: 24px 24px 8px 24px;
+    font-size: 28px;
+    font-family: '思源宋体 CN', 'Source Han Serif', serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.card-notes-list {
+    width: 100%;
+    height: 328px;
+    margin: 0;
+    padding: 16px;
+    list-style: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: all .4s cubic-bezier(0, 0, 0, 1);
+}
+
+.card-notes-item {
+    width: 100%;
+    height: 48px;
+    padding: 10px 12px 10px 48px;
+    font-size: 18px;
+    font-family: '思源宋体 CN', 'Source Han Serif', serif;
+    background-image: url(/image/notes.svg);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: 12px 50%;
+    transition: all .4s cubic-bezier(0, 0, 0, 1);
+    animation: show-text 1s cubic-bezier(0, 0, 0, 1);
+}
+
+.card-notes-item:hover {
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.card-notes-link {
+    color: black;
+    text-decoration: none;
+}
+
+nav {
     position: absolute;
     bottom: 0;
     left: 0;
-    z-index: 5;
-    min-width: 300px;
+    z-index: 10;
     width: auto;
-    height: 64px;
+    height: 84px;
     padding: 8px 24px;
     display: flex;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    transition: all .3s cubic-bezier(0, 0, 0, 1);
+    transition: all .4s cubic-bezier(0, 0, 0, 1);
 }
 
+footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    width: auto;
+    height: 84px;
+    padding: 8px 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    transition: all .4s cubic-bezier(0, 0, 0, 1);
+}
+
+.nav-link,
 .footer-link {
     margin: 0 4px;
     padding: 4px 8px;
@@ -200,25 +269,38 @@ footer {
     transition: all .5s cubic-bezier(0, 0, 0, 1);
 }
 
+.nav-link:hover,
 .footer-link:hover {
     opacity: 1;
 }
 
 .tips {
-    margin: 24px;
-    font-size: 128px;
-    font-family: 'Courier New', Courier, monospace;
+    padding: 16px 24px;
+    font-size: 96px;
+    font-family: '思源宋体 CN', 'Source Han Serif', serif;
+    user-select: none;
+    -moz-user-select: none;
 }
 
 @keyframes show-card {
     from {
         opacity: 0;
-        transform: rotate3d(0, 1, 0, 10deg) scale(.9);
+        transform: rotate3d(0, 1, 0, 10deg) scale(.90);
     }
 
     to {
         opacity: 1;
         transform: rotate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes show-text {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }
 
@@ -231,7 +313,7 @@ footer {
     }
 
     main {
-        padding: 96px 0 64px 0;
+        padding: 96px 0 84px 0;
         flex-direction: column;
     }
 
@@ -239,25 +321,28 @@ footer {
         min-width: 264px;
         min-height: 148.5px;
         width: 88vw;
-        height: 49.5vw;
         margin: 3vw;
         box-shadow: 0 6px 12px rgba(0, 0, 0, .1);
     }
 
-    .card-less:hover {
+    .card-home {
+        height: 49.5vw;
+    }
+
+    .card-home:hover {
         width: 88vw;
         height: 49.5vw;
         box-shadow: 0 6px 12px rgba(0, 0, 0, .2);
     }
 
-    .card-image {
+    .card-home-image {
         width: 100%;
         height: auto;
         transform: scale(1);
-        transition: all .3s cubic-bezier(0, 0, 0, 1);
+        transition: all .4s cubic-bezier(0, 0, 0, 1);
     }
 
-    .card-bar {
+    .card-home-bar {
         padding: 4vw 5vw;
         display: flex;
         align-items: center;
@@ -267,58 +352,56 @@ footer {
         background-color: transparent;
     }
 
-    .card-title {
+    .card-home-title {
         font-size: 6vw;
         font-weight: bold;
     }
 
-    .card-info {
+    .card-home-info {
         font-size: 3vw;
     }
 
-    .card-button {
+    .card-home-button {
         right: 4vw;
         bottom: 4vw;
         width: 8.5vw;
         height: 8.5vw;
     }
 
-    .card-button-less {
-        background-image: url("/image/more.svg");
+    .card-notes {
+        height: auto;
     }
 
-    .card-button-more {
-        background-image: url("/image/less.svg");
+    .card-notes-list {
+        height: auto;
     }
 
     .tips {
         font-size: 72px;
     }
 
-    .card-more {
-        width: 88vw;
-        height: 104vw;
-    }
-
-    .card-content {
-        padding: 4vw 5vw;
-        display: flex;
-        align-items: center;
-        min-width: 100%;
-        width: 100%;
-        height: 88vw;
-        background-color: transparent;
-    }
 
     @keyframes show-card {
         from {
             opacity: 0;
-            transform: rotate3d(1, 0, 0, -10deg) scale(.9);
+            transform: rotate3d(1, 0, 0, -5deg) scale(.95);
         }
 
         to {
             opacity: 1;
             transform: rotate3d(0, 0, 0) scale(1);
+        }
+    }
+
+    @keyframes show-image {
+        from {
+            width: 100%;
+            height: 0;
+        }
+
+        to {
+            width: 100%;
+            height: 49.5vw;
         }
     }
 }

@@ -1,94 +1,112 @@
-$(function () {
+'use strict';
 
-    $(".card-info").hide();
-    $(".card-content").hide();
-    // 卡片反转动画
-    var i = 0;
-    $(".card").each(function () {
-        $(this).css({
-            "opacity": "1",
-            "animation": "show-card " + (0.3 + i * 0.2) + "s",
-        });
-        i++;
-    });
+let color = ["rgba(244,67,54,1)", "rgba(233,30,99,1)", "rgba(156,39,176,1)",
+    "rgba(103,58,183,1)", "rgba(63,81,181,1)", "rgba(33,150,243,1)",
+    "rgba(3,169,244,1)", "rgba(0,188,212,1)", "rgba(0,150,136,1)",
+    "rgba(76,175,80,1)", "rgba(139,195,74,1)", "rgba(205,220,57,1)",
+    "rgba(255,235,59,1)", "rgba(255,193,7,1)", "rgba(255,152,0,1)",
+    "rgba(255,87,34,1)", "rgba(96,125,139,1)"
+]
 
-    // 获取 Github 上的数据
-/*
-    $.getJSON("https://api.github.com/repos/Lifeni/lifeni-notes/contents", function (notebook) {
-        var notebookNum = notebook.length;
-        var noteNum = 0;
-        for (var i = 0; i < notebookNum; i++) {
-            $.getJSON(notebook[i].url, function (note) {
-                noteNum += note.length;
-                $("#info-notes").text(notebookNum + " 个笔记本和 " + noteNum + " 个笔记");
-            })
+document.addEventListener("DOMContentLoaded", function () {
+    if (window.location.href.endsWith("/notes/")) {
+        // 笔记
+        let getJson = new XMLHttpRequest();
+        getJson.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                document.querySelector(".tips").style.display = "none";
+
+                let notebookJson = JSON.parse(this.responseText);
+                for (let i = 0; i < notebookJson.length; i++) {
+
+                    createCard("notes");
+                    let card = document.querySelectorAll(".card");
+
+                    let newTitle = document.createElement("div");
+                    newTitle.className = "card-notes-title";
+                    card[i].appendChild(newTitle);
+                    newTitle.innerText = notebookJson[i].name;
+
+                    let newList = document.createElement("ul");
+                    newList.className = "card-notes-list";
+                    card[i].appendChild(newList);
+
+                    let getJson2 = new XMLHttpRequest();
+                    getJson2.onreadystatechange = function () {
+                        if (this.readyState === 4 && this.status === 200) {
+                            let noteJson = JSON.parse(this.responseText);
+                            for (let j = 0; j < noteJson.length; j++) {
+
+                                let newItem = document.createElement("li");
+                                newItem.className = "card-notes-item";
+                                newItem.innerText = noteJson[j].name.slice(0, -3);
+
+                                let newLink = document.createElement("a");
+                                newLink.className = "card-notes-link";
+                                newLink.appendChild(newItem);
+                                newLink.setAttribute("href", noteJson[j].html_url);
+
+                                let list = document.querySelectorAll(".card-notes-list");
+                                list[i].appendChild(newLink);
+                            }
+                        }
+                    }
+                    getJson2.open("GET", notebookJson[i].url + "&access_token=3f6ee78250ea0bec1e8cad17900f5b0ef2caba32", true);
+                    getJson2.send();
+                }
+                initAllCard();
+            }
         }
-    })*/
+        getJson.open("GET", "https://api.github.com/repos/Lifeni/lifeni-notes/contents?access_token=3f6ee78250ea0bec1e8cad17900f5b0ef2caba32", true);
+        getJson.send();
 
-    if($(".card-content").text() == ""){
-        $(".card-content").css("background-image","url('/image/null.png')")
-    }
-})
-
-var opened = 0;
-// 展开和折叠卡片
-$(".card-image").click(function () {
-    // 打开当前
-    $(this).parents(".card").removeClass("card-less").addClass("card-more");
-    $(this).parents(".card").find(".card-image").hide();
-    $(this).parents(".card").find(".card-info,.card-content").show();
-    $(this).parents(".card").find(".card-button").removeClass("card-button-less").addClass("card-button-more");
-    $(".main-mask").css("z-index", "3");
-    opened = 1;
-});
-$(".card-bar").click(function () {
-    if (opened) {
-        // 关闭当前
-        $(this).parents(".card").removeClass("card-more").addClass("card-less");
-        $(this).parents(".card").find(".card-image").show();
-        $(this).parents(".card").find(".card-info,.card-content").hide();
-        $(this).parents(".card").find(".card-button").removeClass("card-button-more").addClass("card-button-less");
-        $(".main-mask").css("z-index", "0");
-        opened = 0;
+    } else if (window.location.href.endsWith("/works/")) {
+        // 作品
+        initAllCard();
+    } else if (window.location.href.endsWith("/love/")) {
+        // 喜欢
+        initAllCard();
     } else {
-        // 打开当前
-        $(this).parents(".card").removeClass("card-less").addClass("card-more");
-        $(this).parents(".card").find(".card-image").hide();
-        $(this).parents(".card").find(".card-info,.card-content").show();
-        $(this).parents(".card").find(".card-button").removeClass("card-button-less").addClass("card-button-more");
-        $(".main-mask").css("z-index", "3");
-        opened = 1;
+        // 首页
+        let card = document.querySelectorAll(".card");
+        for (let i = 0; i < card.length; i++) {
+            card[i].addEventListener("click", function () {
+                let id = this.getAttribute("id");
+                window.location.href = "/" + id.slice(5) + "/";
+            });
+        }
+        initAllCard();
     }
-});
-$(".main-mask").click(function () {
-    $(".card").removeClass("card-more").addClass("card-less");
-    $(".card").find(".card-image").show();
-    $(".card").find(".card-info,.card-content").hide();
-    $(".card").find(".card-button").removeClass("card-button-more").addClass("card-button-less");
-    $(".main-mask").css("z-index", "0");
-    opened = 0;
 })
 
-// 横向滚动
-document.addEventListener("mousewheel", scrollPage);
-document.addEventListener("DOMMouseScroll", scrollPage);
+function createCard(cardName) {
+    let main = document.querySelector("main");
+    let newCard = document.createElement("div");
+    newCard.className = "card card-" + cardName;
+    main.appendChild(newCard);
+}
 
-function scrollPage() {
-    if ($("windows").width < 480) {
-        return;
-    }
-    if (event.wheelDelta) {
-        if (event.wheelDelta > 0) {
-            document.documentElement.scrollLeft -= 540;
-        } else {
-            document.documentElement.scrollLeft += 540;
-        }
-    }
-    if (event.detail) {
-        if (event.detail > 0) {
-            document.documentElement.scrollLeft += 360;
-        } else {
-            document.documentElement.scrollLeft -= 360;
-        }
+function initAllCard() {
+    let card = document.querySelectorAll(".card");
+    for (let i = 0; i < card.length; i++) {
+        card[i].style.animation = "show-card " + (.25 + i * .15) + "s cubic-bezier(0, 0, 0, 1)";
+        card[i].style.opacity = "1";
     }
 }
+
+
+// 横向滚动
+function scrollPage() {
+    let scrollValue = 0;
+    if (document.documentElement.clientWidth < 480) {
+        return;
+    } else if (event.wheelDelta) {
+        event.wheelDelta > 0 ? scrollValue -= 540 : scrollValue += 540
+    } else if (event.detail) {
+        event.detail > 0 ? scrollValue += 360 : scrollValue -= 360
+    }
+    document.documentElement.scrollLeft += scrollValue;
+}
+
+document.addEventListener("mousewheel", scrollPage);
+document.addEventListener("DOMMouseScroll", scrollPage);
