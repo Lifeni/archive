@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 let notebookJson = JSON.parse(this.responseText);
                 for (let i = 0; i < notebookJson.length; i++) {
-
                     createCard("notes");
                     let card = document.querySelectorAll(".card");
 
@@ -51,13 +50,17 @@ document.addEventListener("DOMContentLoaded", function () {
                             }
                         }
                     }
-                    getJson2.open("GET", notebookJson[i].url + "&access_token=3f6ee78250ea0bec1e8cad17900f5b0ef2caba32", true);
+                    getJson2.open("GET", notebookJson[i].url, true);
                     getJson2.send();
+
+                    if (notebookJson[i].type == "file") {
+                        card[i].style.display = "none";
+                    }
                 }
                 initAllCard();
             }
         }
-        getJson.open("GET", "https://api.github.com/repos/Lifeni/lifeni-notes/contents?access_token=3f6ee78250ea0bec1e8cad17900f5b0ef2caba32", true);
+        getJson.open("GET", "https://api.github.com/repos/Lifeni/lifeni-notes/contents", true);
         getJson.send();
 
     } else if (window.location.href.endsWith("/works/")) {
