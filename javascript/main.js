@@ -1,43 +1,43 @@
 'use strict';
 
-let color = ["rgba(244,67,54,1)", "rgba(233,30,99,1)", "rgba(156,39,176,1)",
-    "rgba(103,58,183,1)", "rgba(63,81,181,1)", "rgba(33,150,243,1)",
-    "rgba(3,169,244,1)", "rgba(0,188,212,1)", "rgba(0,150,136,1)",
-    "rgba(76,175,80,1)", "rgba(139,195,74,1)", "rgba(205,220,57,1)",
-    "rgba(255,235,59,1)", "rgba(255,193,7,1)", "rgba(255,152,0,1)",
-    "rgba(255,87,34,1)", "rgba(96,125,139,1)"
-]
-
 document.addEventListener("DOMContentLoaded", function () {
-    if (window.location.href.endsWith("/notes/")) {
-        // 笔记
+    if (window.location.href.endsWith("/notes/")) { // 笔记
         let getJson = new XMLHttpRequest();
         getJson.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
                 document.querySelector(".tips").style.display = "none";
 
+                // 从 Github 获取笔记本的 JSON
                 let notebookJson = JSON.parse(this.responseText);
                 for (let i = 0; i < notebookJson.length; i++) {
                     createCard("notes");
-                    let card = document.querySelectorAll(".card");
 
+                    // 为新加的卡片添加标题和列表
+                    let card = document.querySelectorAll(".card");
                     let newTitle = document.createElement("div");
                     newTitle.className = "card-notes-title";
-                    card[i].appendChild(newTitle);
                     newTitle.innerText = notebookJson[i].name;
+                    card[i].appendChild(newTitle);
+
+                    let newTitleBackground = document.createElement("div");
+                    newTitleBackground.className = "card-notes-title-background";
+                    newTitle.appendChild(newTitleBackground);
 
                     let newList = document.createElement("ul");
                     newList.className = "card-notes-list";
                     card[i].appendChild(newList);
 
+                    // 从 Github 获取笔记的 JSON
                     let getJson2 = new XMLHttpRequest();
                     getJson2.onreadystatechange = function () {
                         if (this.readyState === 4 && this.status === 200) {
                             let noteJson = JSON.parse(this.responseText);
                             for (let j = 0; j < noteJson.length; j++) {
 
+                                // 在列表中添加项目和相应的链接
                                 let newItem = document.createElement("li");
                                 newItem.className = "card-notes-item";
+                                newItem.title = noteJson[j].name.slice(0, -3);
                                 newItem.innerText = noteJson[j].name.slice(0, -3);
 
                                 let newLink = document.createElement("a");
@@ -47,17 +47,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
                                 let list = document.querySelectorAll(".card-notes-list");
                                 list[i].appendChild(newLink);
+                                changeColor(i);
                             }
                         }
                     }
                     getJson2.open("GET", notebookJson[i].url, true);
                     getJson2.send();
 
+                    // 屏蔽 README.md
                     if (notebookJson[i].type == "file") {
                         card[i].style.display = "none";
                     }
                 }
                 initAllCard();
+
             }
         }
         getJson.open("GET", "https://api.github.com/repos/Lifeni/lifeni-notes/contents", true);
@@ -97,6 +100,12 @@ function initAllCard() {
     }
 }
 
+let color = ["rgba(229, 76, 33,1)", "rgba(240, 219, 79,1)", "rgba(86, 158, 74,1)", "rgba(0,188,212,1)", "rgba(0, 121, 169,1)", "rgba(156,39,176,1)"];
+
+function changeColor(i) {
+    let titleLine = document.querySelectorAll(".card-notes-title-background");
+    titleLine[i].style.backgroundColor = color[i];
+}
 
 // 横向滚动
 function scrollPage() {
@@ -104,9 +113,9 @@ function scrollPage() {
     if (document.documentElement.clientWidth < 480) {
         return;
     } else if (event.wheelDelta) {
-        event.wheelDelta > 0 ? scrollValue -= 540 : scrollValue += 540
+        event.wheelDelta > 0 ? scrollValue -= 540 : scrollValue += 540;
     } else if (event.detail) {
-        event.detail > 0 ? scrollValue += 360 : scrollValue -= 360
+        event.detail > 0 ? scrollValue += 360 : scrollValue -= 360;
     }
     document.documentElement.scrollLeft += scrollValue;
 }
