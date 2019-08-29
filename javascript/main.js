@@ -19,6 +19,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     newTitle.innerText = notebookJson[i].name;
                     card[i].appendChild(newTitle);
 
+                    let newTitleCount = document.createElement("div");
+                    newTitleCount.className = "card-notes-title-count";
+                    newTitle.appendChild(newTitleCount);
+
                     let newTitleBackground = document.createElement("div");
                     newTitleBackground.className = "card-notes-title-background";
                     newTitle.appendChild(newTitleBackground);
@@ -47,7 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                                 let list = document.querySelectorAll(".card-notes-list");
                                 list[i].appendChild(newLink);
-                                changeColor(i);
+                                newTitleCount.innerText = noteJson.length;
+                                changeColor(notebookJson[i].name, i);
                             }
                         }
                     }
@@ -60,20 +65,35 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 }
                 initAllCard();
-
             }
         }
         getJson.open("GET", "https://api.github.com/repos/Lifeni/lifeni-notes/contents", true);
         getJson.send();
 
-    } else if (window.location.href.endsWith("/works/")) {
-        // 作品
+    } else if (window.location.href.endsWith("/works/")) {  // 作品
+        let card = document.querySelectorAll(".card-works");
+        for (let i = 0; i < card.length; i++) {
+            if (document.documentElement.clientWidth > 480) {
+                card[i].style.position = "absolute";
+                card[i].style.zIndex = i;
+                card[i].style.marginLeft = i * (-12) + "px";
+                card[i].style.marginTop = i * (-12) + "px";
+            }
+        }
         initAllCard();
-    } else if (window.location.href.endsWith("/love/")) {
-        // 喜欢
+    } else if (window.location.href.endsWith("/love/")) { // 喜欢
+        let header = document.querySelector("header");
+        header.style.filter = "invert(100%)";
+        let address = document.querySelector("address");
+        address.style.filter = "invert(100%)";
+        let main = document.querySelector("main");
+        main.style.padding = "0";
+        let nav = document.querySelector("nav");
+        nav.style.filter = "invert(100%)";
+        let footer = document.querySelector("footer");
+        footer.style.filter = "invert(100%)";
         initAllCard();
-    } else {
-        // 首页
+    } else { // 首页
         let card = document.querySelectorAll(".card");
         for (let i = 0; i < card.length; i++) {
             card[i].addEventListener("click", function () {
@@ -100,11 +120,28 @@ function initAllCard() {
     }
 }
 
-let color = ["rgba(229, 76, 33,1)", "rgba(240, 219, 79,1)", "rgba(86, 158, 74,1)", "rgba(0,188,212,1)", "rgba(0, 121, 169,1)", "rgba(156,39,176,1)"];
-
-function changeColor(i) {
+function changeColor(noteName, i) {
+    let color = "rgba(33,150,243,1)";
     let titleLine = document.querySelectorAll(".card-notes-title-background");
-    titleLine[i].style.backgroundColor = color[i];
+    let noteCount = document.querySelectorAll(".card-notes-title-count");
+    switch (noteName) {
+        case "HTML & CSS":
+            color = "rgba(229, 76, 33,1)";
+            break;
+        case "JavaScript":
+            color = "rgba(240, 219, 79,1)";
+            break;
+        case "Node.js":
+            color = "rgba(86, 158, 74,1)";
+            break;
+        case "算法 & 题解":
+            color = "rgba(0, 121, 169,1)";
+            break;
+        default:
+            break;
+    }
+    titleLine[i].style.backgroundColor = color;
+    noteCount[i].style.backgroundColor = color;
 }
 
 // 横向滚动

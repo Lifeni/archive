@@ -1,3 +1,7 @@
+:root {
+    --font-default: '思源宋体 CN', 'Source Han Serif', serif;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -157,7 +161,7 @@ main {
 .card-home-info {
     color: black;
     font-size: 16px;
-    font-family: '思源宋体 CN', 'Source Han Serif', serif;
+    font-family: var(--font-default);
     transition: all .4s cubic-bezier(0, 0, 0, 1);
 }
 
@@ -171,7 +175,6 @@ main {
     background-color: transparent;
     transition: all .4s cubic-bezier(0, 0, 0, 1);
     cursor: pointer;
-
 }
 
 .card-notes {
@@ -185,9 +188,24 @@ main {
     height: 64px;
     padding: 18px 24px 8px 24px;
     font-size: 22px;
-    font-family: '思源宋体 CN', 'Source Han Serif', serif;
+    font-family: var(--font-default);
     font-weight: bold;
     text-align: left;
+    user-select: none;
+    -moz-user-select: none;
+}
+
+.card-notes-title-count {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 24px;
+    height: 24px;
+    border-radius: 24px;
+    color: white;
+    font-size: 16px;
+    font-family: var(--font-default);
+    text-align: center;
 }
 
 .card-notes-title-background {
@@ -213,13 +231,13 @@ main {
 
 .card-notes-item {
     width: 100%;
-    height: 48px;
-    padding: 10px 12px 10px 48px;
+    height: 44px;
+    padding: 8px 12px 8px 48px;
     font-size: 18px;
-    font-family: '思源宋体 CN', 'Source Han Serif', serif;
+    font-family: var(--font-default);
     background-image: url(/image/notes.svg);
     background-repeat: no-repeat;
-    background-size: 24px;
+    background-size: 18px;
     background-position: 12px 50%;
     overflow: hidden;
     white-space: nowrap;
@@ -234,6 +252,24 @@ main {
 .card-notes-link {
     color: black;
     text-decoration: none;
+}
+
+.card-works {
+    max-width: 800px;
+    max-height: 450px;
+    width: 72vw;
+    height: 40.5vw;
+}
+
+.card-works-video {
+    width: 100%;
+    height: 100%;
+}
+
+iframe {
+    width: 100vw;
+    height: 100vh;
+    animation: show-text .4s cubic-bezier(0, 0, 0, 1);
 }
 
 nav {
@@ -289,8 +325,8 @@ footer {
 
 .tips {
     padding: 16px 24px;
-    font-size: 96px;
-    font-family: '思源宋体 CN', 'Source Han Serif', serif;
+    font-size: 72px;
+    font-family: var(--font-default);
     user-select: none;
     -moz-user-select: none;
 }
@@ -389,8 +425,14 @@ footer {
         height: auto;
     }
 
+    .card-works {
+        width: 88vw;
+        height: 49.5vw;
+        margin: 0;
+    }
+
     .tips {
-        font-size: 52px;
+        font-size: 48px;
     }
 
     @keyframes show-card {
@@ -402,18 +444,6 @@ footer {
         to {
             opacity: 1;
             transform: rotate3d(0, 0, 0) scale(1);
-        }
-    }
-
-    @keyframes show-image {
-        from {
-            width: 100%;
-            height: 0;
-        }
-
-        to {
-            width: 100%;
-            height: 49.5vw;
         }
     }
 }
