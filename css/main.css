@@ -179,7 +179,7 @@ main {
 
 .card-notes {
     width: 300px;
-    height: 450px;
+    height: 420px;
     transition: all .4s cubic-bezier(0, 0, 0, 1);
 }
 
