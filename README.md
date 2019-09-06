@@ -21,5 +21,3 @@
 3. 背景图（笔记） - 动画《紫罗兰永恒花园》
 4. 背景图（作品） - 电影《你的名字。》
 5. 背景图（喜欢） - 电影《莉兹与青鸟》
-6. 模拟太阳系的动画 - Malik Dellidj - https://codepen.io/kowlor/pen/ZYYQoy
-

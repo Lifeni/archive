@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     newTitleBackground.className = "card-notes-title-background";
                     newTitle.appendChild(newTitleBackground);
 
+
                     let newList = document.createElement("ul");
                     newList.className = "card-notes-list";
                     card[i].appendChild(newList);
@@ -51,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                                 let list = document.querySelectorAll(".card-notes-list");
                                 list[i].appendChild(newLink);
+
                                 newTitleCount.innerText = noteJson.length;
                                 changeColor(notebookJson[i].name, i);
                             }
@@ -67,10 +69,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 initAllCard();
             }
         }
+
         getJson.open("GET", "https://api.github.com/repos/Lifeni/lifeni-notes/contents", true);
         getJson.send();
 
-    } else if (window.location.href.endsWith("/works/")) {  // 作品
+    } else if (window.location.href.endsWith("/works/")) { // 作品
         let card = document.querySelectorAll(".card-works");
         for (let i = 0; i < card.length; i++) {
             if (document.documentElement.clientWidth > 480) {
@@ -82,17 +85,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         initAllCard();
     } else if (window.location.href.endsWith("/love/")) { // 喜欢
-        let header = document.querySelector("header");
+        let header = document.querySelector("header"),
+            address = document.querySelector("address"),
+            main = document.querySelector("main"),
+            nav = document.querySelector("nav"),
+            footer = document.querySelector("footer"),
+            tips = document.querySelector(".tips");
         header.style.filter = "invert(100%)";
-        let address = document.querySelector("address");
         address.style.filter = "invert(100%)";
-        let main = document.querySelector("main");
         main.style.padding = "0";
-        let nav = document.querySelector("nav");
+        main.style.backgroundColor = "rgba(33,33,33 ,1)";
         nav.style.filter = "invert(100%)";
-        let footer = document.querySelector("footer");
         footer.style.filter = "invert(100%)";
-        initAllCard();
+        tips.style.color = "white";
     } else { // 首页
         let card = document.querySelectorAll(".card");
         for (let i = 0; i < card.length; i++) {
