@@ -209,7 +209,7 @@ main {
 }
 
 .card-notes:hover .card-notes-title {
-    width: 72px;
+    width: 360px;
 }
 
 .card-notes-title-count {
@@ -239,12 +239,13 @@ main {
 
 .card-notes:hover .card-notes-title-background{
     height: 0;
+    opacity: 0;
 }
 
 .card-notes-list {
     position: absolute;
     top: 0;
-    left: 72px;
+    left: 64px;
     width: 0;
     height: 420px;
     margin: 0;
@@ -256,7 +257,7 @@ main {
 }
 
 .card-notes:hover .card-notes-list {
-    width: 288px;
+    width: 300px;
     opacity: 1;
 }
 
