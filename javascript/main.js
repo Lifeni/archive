@@ -1,7 +1,7 @@
 'use strict';
 
 document.addEventListener("DOMContentLoaded", function () {
-    if (window.location.href.endsWith("/notes/")) { // 笔记
+    if (window.location.href.slice(-6, -1) === "notes") { // 笔记
         let getJson = new XMLHttpRequest();
         getJson.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
         getJson.open("GET", "https://api.github.com/repos/Lifeni/lifeni-notes/contents", true);
         getJson.send();
 
-    } else if (window.location.href.endsWith("/works/")) { // 作品
+    } else if (window.location.href.slice(-6, -1) === "works") { // 作品
         let card = document.querySelectorAll(".card-works");
         for (let i = 0; i < card.length; i++) {
             if (document.documentElement.clientWidth > 480) {
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
         initAllCard();
-    } else if (window.location.href.endsWith("/love/")) { // 喜欢
+    } else if (window.location.href.slice(-5, -1) === "love") { // 喜欢
         let header = document.querySelector("header"),
             address = document.querySelector("address"),
             main = document.querySelector("main"),

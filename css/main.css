@@ -1,5 +1,5 @@
 :root {
-    --font-default: '思源宋体 CN', 'Source Han Serif', serif;
+    --font-default: '思源宋体 CN', 'Source Han Serif', SourceSerifPro, sans-serif;
 }
 
 * {
@@ -84,6 +84,7 @@ main {
     z-index: 5;
     min-width: 100vw;
     min-height: 100vh;
+    height: 100vh;
     padding: 16px;
     display: flex;
     align-items: center;
@@ -233,11 +234,12 @@ main {
     z-index: -1;
     width: 5%;
     height: 100%;
+    opacity: 1;
     background-color: transparent;
     transition: all .4s cubic-bezier(0, 0, 0, 1);
 }
 
-.card-notes:hover .card-notes-title-background{
+.card-notes:hover .card-notes-title-background {
     height: 0;
     opacity: 0;
 }
@@ -254,6 +256,7 @@ main {
     list-style: none;
     overflow-x: hidden;
     overflow-y: auto;
+    transition: all .2s;
 }
 
 .card-notes:hover .card-notes-list {
@@ -493,6 +496,7 @@ footer {
         z-index: -1;
         width: 90%;
         height: 4px !important;
+        opacity: 1 !important;
         background-color: transparent;
     }
 
@@ -501,7 +505,7 @@ footer {
         left: 0;
         width: 100% !important;
         height: auto;
-        padding: 24px 16px;
+        padding: 24px 16px 16px 16px;
         opacity: 1;
     }
 
@@ -538,4 +542,9 @@ footer {
     footer {
         display: none;
     }
+}
+
+@font-face {
+    font-family: "SourceSerifPro";
+    src: url(/font/SourceSerifPro-Regular.ttf);
 }
