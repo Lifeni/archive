@@ -1,5 +1,5 @@
 :root {
-    --font-default: '思源宋体 CN', 'Source Han Serif', SourceSerifPro, sans-serif;
+    --font-default: '思源宋体 CN', 'Source Han Serif', sans-serif;
 }
 
 * {
@@ -156,7 +156,7 @@ main {
     color: black;
     font-size: 32px;
     font-weight: bold;
-    font-family: '思源宋体 CN', 'Source Han Serif', serif;
+    font-family: var(--font-default);
     transition: all .4s cubic-bezier(0, 0, 0, 1);
 }
 
@@ -542,9 +542,4 @@ footer {
     footer {
         display: none;
     }
-}
-
-@font-face {
-    font-family: "SourceSerifPro";
-    src: url(/font/SourceSerifPro-Regular.ttf);
 }
