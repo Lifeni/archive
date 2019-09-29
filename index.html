@@ -13,65 +13,39 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="stylesheet" href="/css/main.css" type="text/css">
 
-    <script>
-        // 这句是用来修复 Chrome 中一个有关 transition 的 BUG
-        // 参见：https://stackoverflow.com/questions/40197386/css-transition-being-fired-upon-load-with-link-and-input-elements-chrome
-    </script>
-
     <title>Lifeni</title>
 </head>
 
 <body>
     <div class="container" id="container">
         <header>
-            <a href="https://lifeni.top" class="home-link">
-                <img src="/image/lifeni.svg" class="header-title">
-            </a>
+            <img src="/image/lifeni.svg" class="header-title">
+            <address>
+                <a href="https://github.com/Lifeni" class="address-link" id="link-github" title="@Lifeni">
+                    <img src="/image/github-logo.svg" alt="Github" class="address-icon">
+                </a>
+                <a href="mailto:liangfengning@foxmail.com" class="address-link" id="link-mail"
+                    title="liangfengning@foxmail.com">
+                    <img src="/image/mail.svg" alt="Mail" class="address-icon">
+                </a>
+            </address>
         </header>
 
-        <address>
-            <a href="https://github.com/Lifeni" class="address-link" id="link-github" title="@Lifeni">
-                <img src="/image/github-logo.svg" alt="Github" class="address-icon">
-            </a>
-            <a href="mailto:liangfengning@foxmail.com" class="address-link" id="link-mail" title="liangfengning@foxmail.com">
-                <img src="/image/mail.svg" alt="Mail" class="address-icon">
-            </a>
-        </address>
-
+        <nav>
+            <button class="nav-button" id="notes">笔记</button>
+            <div class="directory"> </div>
+        </nav>
         <main>
-            <div class="card card-home" id="card-notes">
-                <img src="/image/typewriter-min.jpg" alt="《紫罗兰永恒花园》中的打字机" title="《紫罗兰永恒花园》中的打字机"
-                    class="card-home-image">
-                <div class="card-home-bar">
-                    <span class="card-home-title">笔记</span>
-                    <span class="card-home-info" id="info-notes"></span>
-                    <button class="card-home-button"></button>
-                </div>
+            <div class="loading">
+                <div class="loading-animation"></div>
             </div>
-            <div class="card card-home" id="card-works">
-                <img src="/image/drawing-min.jpg" alt="《你的名字。》中泷的绘画" title="《你的名字。》中泷的绘画" class="card-home-image">
-                <div class="card-home-bar">
-                    <span class="card-home-title">作品</span>
-                    <span class="card-home-info" id="info-works"></span>
-                    <button class="card-home-button"></button>
-                </div>
-            </div>
-            <div class="card card-home" id="card-love">
-                <img src="/image/love-min.jpg" alt="《莉兹与青鸟》中霙和希美的拥抱" title="《莉兹与青鸟》中霙和希美的拥抱" class="card-home-image">
-                <div class="card-home-bar">
-                    <span class="card-home-title">喜欢</span>
-                    <span class="card-home-info" id="info-love"></span>
-                    <button class="card-home-button"></button>
-                </div>
+            <div class="content" id="notes">
+                <!-- 由 JavaScript 生成 -->
             </div>
         </main>
 
-        <nav>
-            <a href="https://github.com/Lifeni/lifeni.top/blob/master/README.md" class="nav-link">关于这个网站</a>
-            <a href="https://lifeni.top/cloud/" class="nav-link">OneIndex</a>
-        </nav>
-
         <footer>
+            <a href="https://github.com/Lifeni/lifeni.top/blob/master/README.md" class="footer-link">关于这个网站</a>
             <a href="http://www.miitbeian.gov.cn/" class="footer-link" target="_blank"
                 title="鲁ICP备19006085号">鲁ICP备19006085号</a>
         </footer>

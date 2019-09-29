@@ -1,6 +1,6 @@
 # lifeni.top
 
-本文档最后更新于 2019-08-31
+本文档最后更新于 2019.9.29
 
 ## 关于这个网站
 
@@ -18,6 +18,3 @@
 
 1. 图标 Github - Dave Gandy - www.flaticon.com - CC 3.0 BY
 2. 图标 Mail - Freepik - www.flaticon.com - Flaticon Basic License
-3. 背景图（笔记） - 动画《紫罗兰永恒花园》
-4. 背景图（作品） - 电影《你的名字。》
-5. 背景图（喜欢） - 电影《莉兹与青鸟》
