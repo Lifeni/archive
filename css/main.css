@@ -100,8 +100,8 @@ nav {
     margin: 0 4px;
     padding: 8px 8px;
     border: none;
-    border-bottom: 1px solid transparent;
     background-color: transparent;
+    color: rgba(0, 0, 0, .2);
     font-size: 22px;
     font-weight: bold;
     font-family: var(--font-default);
@@ -110,7 +110,6 @@ nav {
 }
 
 .current-button {
-    border-bottom: 1px solid black;
     color: black;
 }
 
@@ -135,10 +134,14 @@ main {
     height: auto;
     padding: 84px 24px;
     display: none;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
     background-color: white;
+}
+
+.max-content {
+    height: 100%;
 }
 
 .notebook {
@@ -169,7 +172,7 @@ main {
     margin: 3%;
     padding: 2%;
     border-radius: 4px;
-    background-color: rgba(0, 0, 0, .02);
+    background-color: rgba(0, 0, 0, .04);
     font-size: 18px;
     font-family: var(--font-default);
 }
@@ -198,6 +201,27 @@ main {
     text-decoration: none;
 }
 
+.directory {
+    position: fixed;
+    top: 84px;
+    left: 0;
+    width: 252px;
+    height: auto;
+    padding: 24px;
+}
+
+.directory-link {
+    width: fit-content;
+    width: -moz-fit-content;
+    display: block;
+    margin: 8px;
+    color: black;
+    border-bottom: 1px solid black;
+    font-size: 16px;
+    font-family: var(--font-default);
+    text-decoration: none;
+}
+
 .showcase {
     width: 100%;
     height: 240px;
@@ -207,7 +231,7 @@ main {
     align-items: center;
     justify-content: center;
     border-radius: 4px;
-    background-color: rgba(0, 0, 0, .02);
+    background-color: rgba(0, 0, 0, .04);
     transition: all .3s ease;
 }
 
@@ -245,25 +269,90 @@ main {
     animation: opacity-show .3s ease;
 }
 
-.directory {
-    position: fixed;
-    top: 84px;
-    left: 0;
-    width: 252px;
+.music {
+    position: relative;
+    width: 100%;
     height: auto;
-    padding: 24px;
+    margin: 12px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background-color: white;
+    transition: all .3s ease;
+    animation: opacity-show .3s ease;
 }
 
-.directory-link {
-    width: fit-content;
-    width: -moz-fit-content;
-    display: block;
-    margin: 8px;
-    color: black;
-    border-bottom: 1px solid black;
-    font-size: 16px;
+.music-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.music-name {
+    margin: 16px;
+    font-size: 48px;
     font-family: var(--font-default);
-    text-decoration: none;
+    font-weight: bold;
+}
+
+.music-author {
+    margin: 12px;
+    font-size: 28px;
+    font-family: var(--font-default);
+}
+
+.music-control {
+    margin: 64px;
+    width: 72px;
+    height: 72px;
+    padding: 0;
+    border: none;
+    border-radius: 72px;
+    background-image: url(/image/play.svg);
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, .04);
+    transition: all .3s ease;
+}
+
+.music-progress-bar {
+    position: relative;
+    width: 75%;
+    height: 4px;
+    margin: 48px 0 24px 0;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .1);
+    transition: all .3s ease;
+}
+
+.current-progress {
+    width: 0;
+    height: 100%;
+    border-radius: 4px;
+    background-color: black;
+    transition: all .3s ease;
+}
+
+.time-bubble {
+    position: absolute;
+    bottom: 8px;
+    left: -24px;
+    width: 48px;
+    height: 22px;
+    padding: 2px;
+    display: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    font-family: var(--font-code);
+    background-color: black;
+    text-align: center;
+    transition: all .3s ease;
+    animation: opacity-show .3s ease;
 }
 
 footer {
@@ -286,7 +375,7 @@ footer {
     margin: 0 4px;
     padding: 4px 8px;
     color: rgba(0, 0, 0, .4);
-    background-color: rgba(0, 0, 0, .02);
+    background-color: rgba(0, 0, 0, .04);
     border-radius: 4px;
     font-size: 12px;
     font-family: sans-serif;
@@ -360,6 +449,10 @@ footer {
         background-color: white;
     }
 
+    nav {
+        justify-content: center;
+    }
+
     .content {
         padding: 96px 16px;
     }
@@ -385,9 +478,12 @@ footer {
         padding: 1%;
     }
 
+    .directory {
+        display: none !important;
+    }
+
     .showcase {
         height: 160px;
-        margin: 12px 8px;
     }
 
     .showcase-title {
@@ -400,8 +496,12 @@ footer {
         font-size: 18px;
     }
 
-    .directory {
-        display: none !important;
+    .music-name {
+        font-size: 36px;
+    }
+
+    .music-author {
+        font-size: 24px;
     }
 }
 

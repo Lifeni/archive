@@ -38,6 +38,7 @@
         <nav>
             <button class="nav-button" id="notes-button">笔记</button>
             <button class="nav-button" id="works-button">作品</button>
+            <button class="nav-button" id="love-button">喜欢</button>
             <div class="directory"> </div>
         </nav>
         <main>
@@ -49,6 +50,20 @@
             </div>
             <div class="content" id="works">
                 <!-- 由 JavaScript 生成 -->
+            </div>
+            <div class="content max-content" id="love">
+                <div class="music">
+                    <div class="music-info">
+                        <div class="music-name"></div>
+                        <div class="music-author"></div>
+                    </div>
+                    <button class="music-control"></button>
+                    <div class="music-progress-bar">
+                        <div class="current-progress"></div>
+                        <div class="time-bubble" id="current-time">0:00</div>
+                    </div>
+                    <audio src="/media/最高の片想い - タイナカ彩智.mp3" preload="auto"></audio>
+                </div>
             </div>
         </main>
 

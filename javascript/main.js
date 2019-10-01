@@ -5,7 +5,8 @@ let navButton = document.querySelectorAll(".nav-button"),
     directory = document.querySelector(".directory");
 
 let getNotesFlag = 0,
-    getWorksFlag = 0;
+    getWorksFlag = 0,
+    getMusicInfoFlag = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
     navButton[0].click();
@@ -25,6 +26,14 @@ navButton[1].onclick = function () {
         getWorksFlag = 1;
     }
     showContent(1);
+};
+
+navButton[2].onclick = function () {
+    if (!getMusicInfoFlag) {
+        getMusicInfo();
+        getMusicInfoFlag = 1;
+    }
+    showContent(2);
 };
 
 function showContent(x) {
@@ -157,6 +166,56 @@ function getWorks() {
 
     getJson.open("GET", "https://api.github.com/users/Lifeni/repos" + jsonToken("?"), true);
     getJson.send();
+}
+
+function getMusicInfo() {
+    let audio = document.querySelector("audio"),
+        src = audio.getAttribute("src"),
+        pos = src.indexOf(" - ", 0);
+
+    let name = document.querySelector(".music-name"),
+        author = document.querySelector(".music-author"),
+        control = document.querySelector(".music-control"),
+        timeBubble = document.querySelector(".time-bubble"),
+        currentProgress = document.querySelector(".current-progress");
+
+    let playFlag = 0;
+
+    name.innerText = src.slice(7, pos);
+    author.innerText = src.slice(pos + 3, src.length - 4);
+    control.style.backgroundImage = "url('/image/play.svg')";
+    audio.volume = .5;
+
+    control.addEventListener("click", function () {
+        timeBubble.style.display = "block";
+        if (playFlag === 0) {
+            audio.play();
+            control.style.backgroundImage = "url('/image/pause.svg')";
+            playFlag = 1;
+        } else if (playFlag === 1) {
+            audio.pause();
+            control.style.backgroundImage = "url('/image/play.svg')";
+            playFlag = 0;
+        } else if (playFlag === -1) {
+            audio.currentTime = 0;
+            control.style.backgroundImage = "url('/image/replay.svg')"
+            playFlag = 0;
+        }
+    })
+
+    audio.addEventListener("timeupdate", function () {
+        let currentTime = audio.currentTime,
+            totalTime = audio.duration,
+            percent = currentTime / totalTime;
+
+        currentProgress.style.width = percent * 100 + "%";
+        timeBubble.style.left = currentProgress.offsetWidth - 24 + "px";
+        if (parseInt(audio.currentTime % 60) < 10) {
+            timeBubble.innerText = parseInt(audio.currentTime / 60) + ":" + "0" + parseInt(audio.currentTime % 60);
+        } else {
+            timeBubble.innerText = parseInt(audio.currentTime / 60) + ":" + parseInt(audio.currentTime % 60)
+        }
+    })
 }
 
 function jsonToken(sign) {
