@@ -201,7 +201,5 @@ function getWorks() {
 }
 
 function jsonToken(sign) {
-    return sign + "access_token=4d3b18c13754839f063259e955a85ce3b23a1688";
-
     return "";
 }
