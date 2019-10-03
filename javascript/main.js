@@ -31,15 +31,6 @@ navButton[1].onclick = function () {
     showContent(1);
 };
 
-navButton[2].onclick = function () {
-    if (!getLoveFlag) {
-        getMusicInfo();
-        getPicture();
-        getLoveFlag = 1;
-    }
-    showContent(2);
-};
-
 function showContent(x) {
     for (let i = 0; i < content.length; i++) {
         content[i].style.display = "none";
