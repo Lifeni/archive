@@ -166,11 +166,11 @@ function getWorks() {
                 newTitle.appendChild(newData);
 
                 newStar.className = "repo-star";
-                newStar.innerText = "Star " + worksJson[i].stargazers_count;
+                newStar.innerText = "Star: " + worksJson[i].stargazers_count;
                 newData.appendChild(newStar);
 
                 newUpdate.className = "repo-update";
-                newUpdate.innerText = "Last Update " + worksJson[i].updated_at.slice(0, 10);
+                newUpdate.innerText = "Last Update: " + worksJson[i].updated_at.slice(0, 10);
                 newData.appendChild(newUpdate);
             }
 
@@ -200,96 +200,8 @@ function getWorks() {
     getJson.send();
 }
 
-function getMusicInfo() {
-    let
-        audio = document.querySelector("audio"),
-        src = audio.getAttribute("src"),
-        pos = src.indexOf(" - ", 0);
-
-    let
-        name = document.querySelector(".music-name"),
-        author = document.querySelector(".music-author"),
-        control = document.querySelector(".music-control"),
-        timeBubble = document.querySelector(".time-bubble"),
-        currentProgress = document.querySelector(".current-progress");
-
-    let playFlag = 0;
-
-    name.innerText = src.slice(7, pos);
-    author.innerText = src.slice(pos + 3, src.length - 4);
-    control.style.backgroundImage = "url('/image/play.svg')";
-    audio.volume = .5;
-
-    control.addEventListener("click", function () {
-        timeBubble.style.display = "block";
-        if (playFlag === 0 || playFlag === -1) {
-            audio.play();
-            control.style.backgroundImage = "url('/image/pause.svg')";
-            playFlag = 1;
-        } else if (playFlag === 1) {
-            audio.pause();
-            control.style.backgroundImage = "url('/image/play.svg')";
-            playFlag = 0;
-        }
-    })
-
-    audio.addEventListener("timeupdate", function () {
-        let
-            currentTime = audio.currentTime,
-            totalTime = audio.duration,
-            percent = currentTime / totalTime;
-
-        currentProgress.style.width = percent * 100 + "%";
-        timeBubble.style.left = currentProgress.offsetWidth - 18 + "px";
-        if (parseInt(audio.currentTime % 60) < 10) {
-            timeBubble.innerText = parseInt(audio.currentTime / 60) + ":" + "0" + parseInt(audio.currentTime % 60);
-        } else {
-            timeBubble.innerText = parseInt(audio.currentTime / 60) + ":" + parseInt(audio.currentTime % 60)
-        }
-    })
-
-    audio.addEventListener("play", function () {
-        control.style.backgroundImage = "url('/image/pause.svg')";
-        playFlag = 1;
-    })
-
-    audio.addEventListener("pause", function () {
-        audio.pause();
-        control.style.backgroundImage = "url('/image/play.svg')";
-        playFlag = 0;
-    })
-
-    audio.addEventListener("ended", function () {
-        playFlag = -1;
-        audio.currentTime = 0;
-        timeBubble.style.display = "none";
-        control.style.backgroundImage = "url('/image/replay.svg')"
-    })
-}
-
-
-function getPicture() {
-    let
-        image = document.querySelector(".gallery-image"),
-        next = document.querySelector(".next-image"),
-        point = document.querySelectorAll(".point"),
-        currentImage = 1;
-
-    image.src = "/media/" + currentImage + ".jpg";
-    point[currentImage - 1].classList.add("current-point");
-    next.addEventListener("click", function () {
-        currentImage++;
-        if (currentImage > 3) {
-            currentImage = 1;
-        }
-        image.src = "/media/" + currentImage + ".jpg";
-        for (let i = 0; i < point.length; i++) {
-            point[i].classList.remove("current-point");
-        }
-        point[currentImage - 1].classList.add("current-point");
-    })
-}
-
 function jsonToken(sign) {
+    return sign + "access_token=4d3b18c13754839f063259e955a85ce3b23a1688";
+
     return "";
 }
