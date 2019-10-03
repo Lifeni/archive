@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/css/main.css" type="text/css">
 
     <script>
-        console.log(233);
+        console.log("个人网站，仅用于学习交流用途。");
     </script>
 
     <title>Lifeni</title>
@@ -39,7 +39,8 @@
             <button class="nav-button" id="notes-button">笔记</button>
             <button class="nav-button" id="works-button">作品</button>
             <button class="nav-button" id="love-button">喜欢</button>
-            <div class="directory"> </div>
+            <div class="directory" id="notes-directory"> </div>
+            <div class="directory" id="works-directory"> </div>
         </nav>
         <main>
             <div class="loading">
@@ -51,7 +52,17 @@
             <div class="content" id="works">
                 <!-- 由 JavaScript 生成 -->
             </div>
-            <div class="content max-content" id="love">
+            <div class="content" id="love">
+                <div class="gallery">
+                    <img class="gallery-image" src=""></img>
+                    <div class="gallery-info">
+                        <span class="gallery-description">K-ON!</span>
+                        <div class="point"></div>
+                        <div class="point"></div>
+                        <div class="point"></div>
+                        <button class="next-image"></button>
+                    </div>
+                </div>
                 <div class="music">
                     <div class="music-info">
                         <div class="music-name"></div>
@@ -62,7 +73,7 @@
                         <div class="current-progress"></div>
                         <div class="time-bubble" id="current-time">0:00</div>
                     </div>
-                    <audio src="/media/最高の片想い - タイナカ彩智.mp3" preload="auto"></audio>
+                    <audio src="/media/Cagayake! GIRLS - 桜高軽音部.mp3" preload="auto"></audio>
                 </div>
             </div>
         </main>

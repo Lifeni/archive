@@ -5,6 +5,12 @@
 
 * {
     box-sizing: border-box;
+    transition: all .3s ease;
+}
+
+a {
+    color: black;
+    text-decoration: none;
 }
 
 html,
@@ -21,81 +27,20 @@ html {
     overflow: hidden;
 }
 
-.container {
-    position: relative;
-}
-
-header {
-    position: fixed;
-    top: unset;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    width: auto;
-    height: 84px;
-    padding: 8px 20px;
-    display: flex;
-    align-items: center;
-    transition: all .3s ease;
-}
-
-.header-title {
-    width: auto;
-    height: 18px;
-    margin: 8px 12px;
-    pointer-events: none;
-    user-select: none;
-    -moz-user-select: none;
-}
-
-address {
-    position: relative;
-    width: auto;
-    height: 84px;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    transition: all .3s ease;
-}
-
-.address-link {
-    width: 40px;
-    height: 40px;
-    margin: 2px;
-    border-radius: 36px;
-    color: black;
-    text-decoration: none;
-}
-
-.address-icon {
-    width: 40px;
-    height: 40px;
-    padding: 8px;
-    border-radius: 48px;
-    transition: all .3s ease;
-}
-
-.address-icon:hover {
-    background-color: rgba(0, 0, 0, .1);
-}
-
 nav {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 2;
-    width: auto;
     height: 84px;
     padding: 8px 24px;
     display: flex;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    transition: all .3s ease;
 }
 
 .nav-button {
-    width: auto;
     height: auto;
     margin: 0 4px;
     padding: 8px 8px;
@@ -106,7 +51,6 @@ nav {
     font-weight: bold;
     font-family: var(--font-default);
     cursor: pointer;
-    transition: all .3s ease;
 }
 
 .current-button {
@@ -123,8 +67,75 @@ main {
     flex-direction: column;
     align-items: center;
     flex-wrap: nowrap;
-    perspective: 1000px;
-    overflow: auto;
+}
+
+header {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    height: 84px;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.header-title {
+    height: 18px;
+    margin: 8px 12px;
+    pointer-events: none;
+}
+
+address {
+    position: relative;
+    height: 84px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.address-link {
+    width: 40px;
+    height: 40px;
+    margin: 2px;
+    border-radius: 36px;
+}
+
+.address-icon {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    border-radius: 48px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    height: 84px;
+    padding: 8px 28px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.nav-link,
+.footer-link {
+    margin: 0 4px;
+    padding: 4px 8px;
+    color: rgba(0, 0, 0, .4);
+    background-color: rgba(0, 0, 0, .04);
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: sans-serif;
+}
+
+.address-icon:hover,
+.footer-link:hover {
+    color: rgba(0, 0, 0, .6);
+    background-color: rgba(0, 0, 0, .1);
 }
 
 .content {
@@ -132,7 +143,7 @@ main {
     width: 100%;
     max-width: 540px;
     height: auto;
-    padding: 84px 24px;
+    padding: 92px 16px;
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -140,37 +151,33 @@ main {
     background-color: white;
 }
 
-.max-content {
-    height: 100%;
-}
-
 .notebook {
     width: 100%;
+    max-width: 480px;
     height: auto;
     margin: 12px 0;
     display: flex;
     flex-direction: row;
     border-radius: 4px;
-    transition: all .3s ease;
 }
 
 .notebook-title {
     width: 15%;
     height: max-contentwyy;
-    margin: 3%;
-    padding: 2%;
-    font-size: 24px;
+    margin: 1.5%;
+    padding: 1%;
+    font-size: 22px;
     font-family: var(--font-default);
     writing-mode: vertical-rl;
     animation: show-text .3s ease;
 }
 
 .notebook-list {
-    width: 65%;
+    width: 75%;
     height: fit-content;
     height: -moz-fit-content;
-    margin: 3%;
-    padding: 2%;
+    margin: 1%;
+    padding: 1.5%;
     border-radius: 4px;
     background-color: rgba(0, 0, 0, .04);
     font-size: 18px;
@@ -188,7 +195,6 @@ main {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    transition: all .3s ease;
     animation: opacity-show .3s ease;
 }
 
@@ -196,9 +202,61 @@ main {
     background-color: rgba(0, 0, 0, .1);
 }
 
-.note-link {
-    color: black;
-    text-decoration: none;
+.showcase {
+    width: 100%;
+    height: 190px;
+    margin: 8px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background-color: white;
+    animation: opacity-show .3s ease;
+}
+
+.showcase-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.showcase-title {
+    margin: 4px 8px;
+    padding: 24px 32px;
+    border-radius: 4px;
+    font-size: 28px;
+    font-family: var(--font-code);
+    background-color: rgba(0, 0, 0, .04);
+}
+
+.showcase-title:hover {
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.repo-data {
+    position: relative;
+    width: 100%;
+    padding: 16px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.repo-star,
+.repo-update {
+    padding: 2px 8px;
+    font-size: 14px;
+    font-family: var(--font-code);
+}
+
+.showcase-description {
+    margin: 4px 8px;
+    padding: 4px 8px;
+    border-bottom: 1px solid black;
+    font-size: 20px;
+    font-family: var(--font-default);
 }
 
 .directory {
@@ -208,6 +266,7 @@ main {
     width: 252px;
     height: auto;
     padding: 24px;
+    animation: opacity-show .3s ease;
 }
 
 .directory-link {
@@ -215,76 +274,28 @@ main {
     width: -moz-fit-content;
     display: block;
     margin: 8px;
-    color: black;
     border-bottom: 1px solid black;
     font-size: 16px;
     font-family: var(--font-default);
-    text-decoration: none;
-}
-
-.showcase {
-    width: 100%;
-    height: 240px;
-    margin: 12px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, .04);
-    transition: all .3s ease;
-}
-
-.showcase:hover {
-    background-color: rgba(0, 0, 0, .1);
-}
-
-.showcase-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
-
-.showcase-title {
-    width: auto;
-    margin: 8px 16px;
-    padding: 4px 8px;
-    font-size: 32px;
-    font-family: var(--font-code);
-    text-decoration: none;
-    color: black;
-    animation: opacity-show .3s ease;
-}
-
-.showcase-description {
-    width: auto;
-    margin: 8px 16px;
-    padding: 4px 8px;
-    font-size: 22px;
-    font-family: var(--font-default);
-    text-decoration: none;
-    color: black;
-    animation: opacity-show .3s ease;
 }
 
 .music {
     position: relative;
     width: 100%;
     height: auto;
-    margin: 12px 0;
+    margin: 12px 0 24px 0;
+    padding: 24px 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     border-radius: 4px;
-    background-color: white;
-    transition: all .3s ease;
+    background-color: rgba(0, 0, 0, .04);
     animation: opacity-show .3s ease;
 }
 
 .music-info {
+    margin-left: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -292,41 +303,40 @@ main {
 }
 
 .music-name {
-    margin: 16px;
-    font-size: 48px;
+    margin: 8px;
+    font-size: 24px;
     font-family: var(--font-default);
     font-weight: bold;
 }
 
 .music-author {
-    margin: 12px;
-    font-size: 28px;
+    margin: 0 0 8px 0;
+    font-size: 16px;
     font-family: var(--font-default);
 }
 
 .music-control {
-    margin: 64px;
     width: 72px;
     height: 72px;
+    margin-right: 12px;
     padding: 0;
     border: none;
-    border-radius: 72px;
     background-image: url(/image/play.svg);
     background-size: 60%;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: rgba(0, 0, 0, .04);
-    transition: all .3s ease;
+    background-color: transparent;
 }
 
 .music-progress-bar {
-    position: relative;
-    width: 75%;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
     height: 4px;
-    margin: 48px 0 24px 0;
+    margin: 0;
     border-radius: 4px;
     background-color: rgba(0, 0, 0, .1);
-    transition: all .3s ease;
 }
 
 .current-progress {
@@ -334,60 +344,108 @@ main {
     height: 100%;
     border-radius: 4px;
     background-color: black;
-    transition: all .3s ease;
 }
 
 .time-bubble {
     position: absolute;
-    bottom: 8px;
-    left: -24px;
-    width: 48px;
-    height: 22px;
+    top: 8px;
+    left: -18px;
+    width: 36px;
+    height: 18px;
     padding: 2px;
     display: none;
     border-radius: 4px;
     color: white;
-    font-size: 16px;
+    font-size: 12px;
     font-family: var(--font-code);
     background-color: black;
     text-align: center;
-    transition: all .3s ease;
     animation: opacity-show .3s ease;
 }
 
-footer {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    z-index: 2;
-    width: auto;
-    height: 84px;
-    padding: 8px 28px;
+.time-bubble::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 14px;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid black;
+}
+
+.gallery {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 8px 0;
+    padding: 12px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    transition: all .3s ease;
-}
-
-.nav-link,
-.footer-link {
-    margin: 0 4px;
-    padding: 4px 8px;
-    color: rgba(0, 0, 0, .4);
-    background-color: rgba(0, 0, 0, .04);
+    justify-content: center;
     border-radius: 4px;
-    font-size: 12px;
-    font-family: sans-serif;
-    text-decoration: none;
-    user-select: none;
-    -moz-user-select: none;
-    transition: all .3s ease;
+    background-color: rgba(0, 0, 0, .04);
+    animation: opacity-show .3s ease;
 }
 
-.footer-link:hover {
-    color: rgba(0, 0, 0, .6);
-    background-color: rgba(0, 0, 0, .1);
+.gallery-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.gallery-info {
+    width: 100%;
+    height: 40px;
+    margin: 12px 0 0 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.gallery-description {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    margin: 8px 16px;
+    font-size: 18px;
+    font-family: var(--font-default);
+    font-weight: bold;
+}
+
+.next-image {
+    position: absolute;
+    bottom: 12px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+
+.next-image {
+    left: unset;
+    right: 12px;
+    background-image: url("/image/next.svg");
+}
+
+.point {
+    width: 16px;
+    height: 4px;
+    margin: 8px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.current-point {
+    background-color: black;
 }
 
 .loading {
@@ -445,16 +503,8 @@ footer {
     header,
     nav {
         width: 100%;
-        box-shadow: 0 0 16px rgba(0, 0, 0, .1);
+        box-shadow: 0 0 4px rgba(0, 0, 0, .1);
         background-color: white;
-    }
-
-    nav {
-        justify-content: center;
-    }
-
-    .content {
-        padding: 96px 16px;
     }
 
     .footer-link {
@@ -465,48 +515,12 @@ footer {
         display: block;
     }
 
-    .notebook-title {
-        width: 15%;
-        margin: 1.5%;
-        padding: 1%;
-        font-size: 22px;
-    }
-
-    .notebook-list {
-        width: 75%;
-        margin: 1.5%;
-        padding: 1%;
-    }
-
     .directory {
         display: none !important;
-    }
-
-    .showcase {
-        height: 160px;
-    }
-
-    .showcase-title {
-        margin: 4px 8px;
-        font-size: 28px;
-    }
-
-    .showcase-description {
-        margin: 4px 8px;
-        font-size: 18px;
-    }
-
-    .music-name {
-        font-size: 36px;
-    }
-
-    .music-author {
-        font-size: 24px;
     }
 }
 
 @media screen and (max-width: 720px) {
-
     .directory {
         display: none !important;
     }
