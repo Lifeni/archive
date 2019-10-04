@@ -157,11 +157,11 @@ function getWorks() {
                 newTitle.appendChild(newData);
 
                 newStar.className = "repo-star";
-                newStar.innerText = "Star: " + worksJson[i].stargazers_count;
+                newStar.innerText = "Star [" + worksJson[i].stargazers_count+"]";
                 newData.appendChild(newStar);
 
                 newUpdate.className = "repo-update";
-                newUpdate.innerText = "Last Update: " + worksJson[i].updated_at.slice(0, 10);
+                newUpdate.innerText = "Last-Update [" + worksJson[i].updated_at.slice(0, 10) + "]";
                 newData.appendChild(newUpdate);
             }
 
@@ -179,7 +179,7 @@ function getWorks() {
             newShowcase.appendChild(newLink);
 
             newTitle.className = "showcase-title";
-            newTitle.innerText = "还有什么?";
+            newTitle.innerText = "还有啥";
             newLink.appendChild(newTitle);
 
             newDescription.className = "showcase-description";

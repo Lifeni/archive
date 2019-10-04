@@ -48,7 +48,6 @@ nav {
     background-color: transparent;
     color: rgba(0, 0, 0, .2);
     font-size: 22px;
-    font-weight: bold;
     font-family: var(--font-default);
     cursor: pointer;
 }
@@ -161,12 +160,13 @@ footer {
 
 .notebook-title {
     width: 15%;
-    height: max-content;
+    height: auto;
     margin: 1.5%;
     padding: 1%;
     font-size: 22px;
     font-family: var(--font-default);
     writing-mode: vertical-rl;
+    white-space: nowrap;
     animation: show-text .3s ease;
 }
 
@@ -226,6 +226,7 @@ footer {
     border-radius: 4px;
     font-size: 28px;
     font-family: var(--font-code);
+    text-align: center;
     background-color: rgba(0, 0, 0, .04);
 }
 
@@ -261,7 +262,7 @@ footer {
     position: fixed;
     top: 84px;
     left: 0;
-    width: 252px;
+    width: auto;
     height: auto;
     padding: 24px;
     animation: opacity-show .3s ease;
