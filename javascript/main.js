@@ -1,12 +1,14 @@
 'use strict';
 
 let
+    headerTitle = document.querySelector(".header-title"),
     navButton = document.querySelectorAll(".nav-button"),
     content = document.querySelectorAll(".content"),
     notesDirectory = document.querySelector("#notes-directory"),
     worksDirectory = document.querySelector("#works-directory");
 
 let
+    darkFlag = 0,
     getNotesFlag = 0,
     getWorksFlag = 0,
     getLoveFlag = 0;
@@ -15,21 +17,32 @@ document.addEventListener("DOMContentLoaded", function () {
     navButton[0].click();
 })
 
-navButton[0].onclick = function () {
+headerTitle.addEventListener("click", function () {
+    let html = document.querySelector("html");
+    if (darkFlag === 0) {
+        html.style.filter = "invert(100%)";
+        darkFlag = 1;
+    } else if (darkFlag === 1) {
+        html.style.filter = "invert(0)";
+        darkFlag = 0;
+    }
+})
+
+navButton[0].addEventListener("click", function () {
     if (!getNotesFlag) {
         getNotes();
         getNotesFlag = 1;
     }
     showContent(0);
-};
+})
 
-navButton[1].onclick = function () {
+navButton[1].addEventListener("click", function () {
     if (!getWorksFlag) {
         getWorks();
         getWorksFlag = 1;
     }
     showContent(1);
-};
+})
 
 function showContent(x) {
     for (let i = 0; i < content.length; i++) {
@@ -157,7 +170,7 @@ function getWorks() {
                 newTitle.appendChild(newData);
 
                 newStar.className = "repo-star";
-                newStar.innerText = "Star [" + worksJson[i].stargazers_count+"]";
+                newStar.innerText = "Star [" + worksJson[i].stargazers_count + "]";
                 newData.appendChild(newStar);
 
                 newUpdate.className = "repo-update";
