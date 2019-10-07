@@ -5,13 +5,13 @@ let
     navButton = document.querySelectorAll(".nav-button"),
     content = document.querySelectorAll(".content"),
     notesDirectory = document.querySelector("#notes-directory"),
-    worksDirectory = document.querySelector("#works-directory");
+    worksDirectory = document.querySelector("#works-directory"),
+    loading = document.querySelector(".loading");
 
 let
     darkFlag = 0,
     getNotesFlag = 0,
-    getWorksFlag = 0,
-    getLoveFlag = 0;
+    getWorksFlag = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
     navButton[0].click();
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 headerTitle.addEventListener("click", function () {
     let html = document.querySelector("html");
     if (darkFlag === 0) {
-        html.style.filter = "invert(100%)";
+        html.style.filter = "invert(96%)";
         darkFlag = 1;
     } else if (darkFlag === 1) {
         html.style.filter = "invert(0)";
@@ -30,6 +30,7 @@ headerTitle.addEventListener("click", function () {
 
 navButton[0].addEventListener("click", function () {
     if (!getNotesFlag) {
+        loading.style.opacity = "1";
         getNotes();
         getNotesFlag = 1;
     }
@@ -38,6 +39,7 @@ navButton[0].addEventListener("click", function () {
 
 navButton[1].addEventListener("click", function () {
     if (!getWorksFlag) {
+        loading.style.opacity = "1";
         getWorks();
         getWorksFlag = 1;
     }
@@ -53,11 +55,14 @@ function showContent(x) {
     }
     navButton[x].classList.add("current-button");
     content[x].style.display = "flex";
+
     if (x === 0) {
         notesDirectory.style.display = "block"
     } else if (x === 1) {
         worksDirectory.style.display = "block"
     }
+
+    document.body.scrollTop = 0;
 }
 
 function getNotes() {
@@ -116,6 +121,7 @@ function getNotes() {
                 getJson2.open("GET", notebookJson[i].url + jsonToken("&"), true);
                 getJson2.send();
             }
+            loading.style.opacity = "0";
         }
     }
 
@@ -163,18 +169,13 @@ function getWorks() {
 
                 let
                     newData = document.createElement("div"),
-                    newStar = document.createElement("span"),
                     newUpdate = document.createElement("span");
 
                 newData.className = "repo-data";
                 newTitle.appendChild(newData);
 
-                newStar.className = "repo-star";
-                newStar.innerText = "Star [" + worksJson[i].stargazers_count + "]";
-                newData.appendChild(newStar);
-
                 newUpdate.className = "repo-update";
-                newUpdate.innerText = "Last-Update [" + worksJson[i].updated_at.slice(0, 10) + "]";
+                newUpdate.innerText = "Last Update: " + worksJson[i].updated_at.slice(0, 10);
                 newData.appendChild(newUpdate);
             }
 
@@ -198,6 +199,8 @@ function getWorks() {
             newDescription.className = "showcase-description";
             newDescription.innerText = "去 Github 看看";
             newLink.appendChild(newDescription);
+
+            loading.style.opacity = "0";
         }
     }
     getJson.open("GET", "https://api.github.com/users/Lifeni/repos" + jsonToken("?"), true);

@@ -12,8 +12,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="stylesheet" href="/css/main.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:500&display=swap" rel="stylesheet">
     <script>
         console.log("个人网站，仅用于学习交流用途。");
     </script>
@@ -23,13 +22,15 @@
 
 <body>
     <div class="container" id="container">
-        <nav>
-            <button class="nav-button" id="notes-button">笔记</button>
-            <button class="nav-button" id="works-button">作品</button>
-            <div class="directory" id="notes-directory"> </div>
-            <div class="directory" id="works-directory"> </div>
-
-        </nav>
+        <header>
+            <button class="header-title">Lifeni</button>
+            <nav>
+                <button class="nav-button" id="notes-button">笔记</button>
+                <button class="nav-button" id="works-button">作品</button>
+                <div class="directory" id="notes-directory"> </div>
+                <div class="directory" id="works-directory"> </div>
+            </nav>
+        </header>
 
         <main>
             <div class="loading">
@@ -43,8 +44,7 @@
             </div>
         </main>
 
-        <header>
-            <button class="header-title">Lifeni</button>
+        <footer>
             <address>
                 <a href="https://github.com/Lifeni" class="address-link" id="link-github" title="@Lifeni">
                     <img src="/image/github-logo.svg" alt="Github" class="address-icon">
@@ -54,9 +54,6 @@
                     <img src="/image/mail.svg" alt="Mail" class="address-icon">
                 </a>
             </address>
-        </header>
-
-        <footer>
             <a href="https://github.com/Lifeni/lifeni.top/blob/master/README.md" class="footer-link">关于这个网站</a>
             <a href="http://www.miitbeian.gov.cn/" class="footer-link" target="_blank"
                 title="鲁ICP备19006085号">鲁ICP备19006085号</a>
