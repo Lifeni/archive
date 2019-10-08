@@ -196,10 +196,6 @@ function getWorks() {
             newTitle.innerText = "还有啥";
             newLink.appendChild(newTitle);
 
-            newDescription.className = "showcase-description";
-            newDescription.innerText = "去 Github 看看";
-            newLink.appendChild(newDescription);
-
             loading.style.opacity = "0";
         }
     }
