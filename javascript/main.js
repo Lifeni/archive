@@ -70,10 +70,16 @@ function getNotes() {
     getJson.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
             let notebookJson = JSON.parse(this.responseText);
+            let
+                notebookNum = 0,
+                notesNum = 0;
+
             for (let i = 0; i < notebookJson.length; i++) {
                 if (notebookJson[i].type == "file") {
                     continue;
                 }
+
+                notebookNum++;
 
                 let
                     newNotebook = document.createElement("div"),
@@ -102,6 +108,8 @@ function getNotes() {
                     if (this.readyState === 4 && this.status === 200) {
                         let noteJson = JSON.parse(this.responseText);
                         for (let j = 0; j < noteJson.length; j++) {
+                            notesNum++;
+
                             let
                                 newItem = document.createElement("li"),
                                 newLink = document.createElement("a");
@@ -115,12 +123,20 @@ function getNotes() {
                             newLink.appendChild(newItem);
 
                             newList.appendChild(newLink);
+
+                            newStatistics.innerText = notebookNum + " 个笔记本，" + notesNum + " 篇笔记";
                         }
                     }
                 }
                 getJson2.open("GET", notebookJson[i].url + jsonToken("&"), true);
                 getJson2.send();
             }
+
+            let newStatistics = document.createElement("div");
+
+            newStatistics.className = "statistics";
+            content[0].appendChild(newStatistics);
+
             loading.style.opacity = "0";
         }
     }
@@ -134,10 +150,13 @@ function getWorks() {
     getJson.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
             let worksJson = JSON.parse(this.responseText);
+            let worksNum = 0;
             for (let i = 0; i < worksJson.length; i++) {
                 if (worksJson[i].name.startsWith("lifeni")) {
                     continue;
                 }
+
+                worksNum++;
 
                 let
                     newShowcase = document.createElement("div"),
@@ -179,22 +198,11 @@ function getWorks() {
                 newData.appendChild(newUpdate);
             }
 
-            let
-                newShowcase = document.createElement("div"),
-                newLink = document.createElement("a"),
-                newDescription = document.createElement("div"),
-                newTitle = document.createElement("div");
+            let newStatistics = document.createElement("div");
 
-            newShowcase.className = "showcase";
-            content[1].appendChild(newShowcase);
-
-            newLink.className = "showcase-link";
-            newLink.href = "https://github.com/Lifeni";
-            newShowcase.appendChild(newLink);
-
-            newTitle.className = "showcase-title";
-            newTitle.innerText = "还有啥";
-            newLink.appendChild(newTitle);
+            newStatistics.className = "statistics";
+            newStatistics.innerText = worksNum + " 个作品";
+            content[1].appendChild(newStatistics);
 
             loading.style.opacity = "0";
         }

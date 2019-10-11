@@ -74,6 +74,7 @@ nav {
     font-size: 24px;
     font-family: var(--font-default);
     cursor: pointer;
+    outline: none;
 }
 
 .current-button {
@@ -89,12 +90,7 @@ main {
 }
 
 address {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: 2;
     height: 84px;
-    padding: 8px 28px;
     display: flex;
     align-items: center;
 }
@@ -102,7 +98,6 @@ address {
 .address-link {
     width: 40px;
     height: 40px;
-    margin: 4px;
     padding: 4px;
     border-radius: 36px;
 }
@@ -111,7 +106,6 @@ address {
     width: 100%;
     height: 100%;
     border: 4px solid rgba(245, 245, 245, 1);
-    ;
     border-radius: 48px;
     background-color: rgba(245, 245, 245, 1);
 }
@@ -131,8 +125,14 @@ footer {
     display: flex;
     align-items: center;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.footer-link-space {
+    width: auto;
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 .footer-link {
@@ -149,6 +149,37 @@ footer {
 .footer-link:hover {
     color: rgba(66, 66, 66, 1);
     background-color: rgba(224, 224, 224, 1);
+}
+
+.directory {
+    position: fixed;
+    top: 84px;
+    left: 0;
+    width: auto;
+    height: auto;
+    padding: 24px;
+    animation: opacity-show .3s ease;
+}
+
+.directory-link {
+    width: fit-content;
+    width: -moz-fit-content;
+    height: auto;
+    margin: 8px;
+    display: block;
+    border-bottom: 1px solid black;
+    font-size: 16px;
+    font-family: var(--font-default);
+}
+
+.statistics {
+    width: auto;
+    margin: 16px auto 0 auto;
+    padding: 8px;
+    border-bottom: 1px solid black;
+    font-size: 16px;
+    font-family: var(--font-default);
+    text-align: center;
 }
 
 .content {
@@ -191,7 +222,7 @@ footer {
     width: 65%;
     height: auto;
     margin: 8px;
-    padding: 8px;
+    padding: 12px;
     border-radius: 4px;
     background-color: rgba(245, 245, 245, 1);
     font-size: 18px;
@@ -249,7 +280,7 @@ footer {
 .repo-data {
     position: relative;
     width: 100%;
-    padding: 16px 0 0 0;
+    padding: 12px 0 0 0;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -270,33 +301,12 @@ footer {
     background-color: rgba(245, 245, 245, 1);
 }
 
-.showcase-title:hover,
-.showcase-description:hover {
+.showcase-link:hover .showcase-title,
+.showcase-link:hover .showcase-description {
     background-color: rgba(224, 224, 224, 1);
 }
 
-.directory {
-    position: fixed;
-    top: 84px;
-    left: 0;
-    width: auto;
-    height: auto;
-    padding: 24px;
-    animation: opacity-show .3s ease;
-}
-
-.directory-link {
-    width: fit-content;
-    width: -moz-fit-content;
-    height: auto;
-    margin: 8px;
-    display: block;
-    border-bottom: 1px solid black;
-    font-size: 16px;
-    font-family: var(--font-default);
-}
-
-#works-directory .directory-link{
+#works-directory .directory-link {
     font-family: var(--font-code);
 }
 
