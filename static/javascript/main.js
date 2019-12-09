@@ -1,23 +1,5 @@
 'use strict';
 
-window.onload = async function () {
-    function getAccessToken() {
-        return new Promise((resolve, reject) => {
-            let getToken = new XMLHttpRequest();
-            getToken.onreadystatechange = function () {
-                if (this.readyState === 4 && this.status === 200) {
-                    accessToken = this.responseText;
-                }
-            }
-            getToken.open("GET", "https://api.lifeni.top/token", true);
-            getToken.send();
-        });
-    }
-    await getAccessToken();
-    getArticleList();
-    changeWallpaper();
-}
-
 let logo = document.querySelector(".logo"),
     navLink = document.querySelectorAll(".nav-link"),
     statistics = document.querySelector(".statistics"),
@@ -25,6 +7,26 @@ let logo = document.querySelector(".logo"),
 
 let logoClickCount = 0,
     accessToken;
+
+window.onload = async function () {
+    function getAccessToken() {
+        return new Promise((resolve, reject) => {
+            let getToken = new XMLHttpRequest();
+            getToken.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    accessToken = this.responseText;
+                    resolve("ok");
+                }
+            }
+            getToken.open("GET", "https://api.lifeni.top/token", true);
+            getToken.send();
+
+        });
+    }
+    await getAccessToken();
+    changeWallpaper();
+    getArticleList();
+}
 
 logo.addEventListener("click", function () {
     logoClickCount++;
