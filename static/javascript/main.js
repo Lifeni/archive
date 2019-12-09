@@ -8,6 +8,9 @@ let logo = document.querySelector(".logo"),
 let logoClickCount = 0,
     accessToken;
 
+let articleData,
+    worksData;
+
 window.onload = async function () {
     function getAccessToken() {
         return new Promise((resolve, reject) => {
@@ -20,12 +23,13 @@ window.onload = async function () {
             }
             getToken.open("GET", "https://api.lifeni.top/token", true);
             getToken.send();
-
         });
     }
     await getAccessToken();
-    changeWallpaper();
     getArticleList();
+    getWorksList()
+    changeWallpaper();
+
 }
 
 logo.addEventListener("click", function () {
@@ -45,9 +49,11 @@ for (let i = 0; i < navLink.length; i++) {
         navLink[i].classList.add("nav-link-current");
         getStart()
         if (i === 0) {
-            getArticleList();
+            setArticleList();
         } else if (i === 1) {
-            getWorksList();
+            setWorksList();
+        } else if (i === 2) {
+
         }
     })
 }
@@ -56,62 +62,68 @@ function getArticleList() {
     let getJson = new XMLHttpRequest();
     getJson.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
-            let data = JSON.parse(this.responseText);
-            let articleCount = 0;
-            for (let i in data) {
-                if (data[i].type === "file" && data[i].name !== "LICENSE" && data[i].name !== "README.md") {
-                    let template = document.querySelector("#article-list"),
-                        link = template.content.querySelector(".article-link"),
-                        title = template.content.querySelector(".article-title"),
-                        date = template.content.querySelector(".article-date");
-
-                    link.href = data[i].html_url;
-                    title.innerText = data[i].name.slice(0, -3);
-                    date.innerText = "很久以前";
-
-                    let list = document.querySelector("#list"),
-                        clone = document.importNode(template.content, true);
-                    list.appendChild(clone);
-                    articleCount++;
-                }
-            }
-            statistics.innerText = articleCount + " 篇文章";
-            getSuccess();
+            articleData = JSON.parse(this.responseText);
+            setArticleList();
         }
     }
     getJson.open("GET", "https://api.github.com/repos/Lifeni/lifeni-notebook/contents" + accessToken, true);
     getJson.send();
 }
 
+function setArticleList() {
+    let articleCount = 0;
+    for (let i in articleData) {
+        if (articleData[i].type === "file" && articleData[i].name !== "LICENSE" && articleData[i].name !== "README.md") {
+            let template = document.querySelector("#article-list"),
+                link = template.content.querySelector(".article-link"),
+                title = template.content.querySelector(".article-title"),
+                date = template.content.querySelector(".article-date");
+
+            link.href = articleData[i].html_url;
+            title.innerText = articleData[i].name.slice(0, -3);
+            date.innerText = "很久以前";
+
+            let list = document.querySelector("#list"),
+                clone = document.importNode(template.content, true);
+            list.appendChild(clone);
+            articleCount++;
+        }
+    }
+    statistics.innerText = articleCount + " 篇文章";
+    getSuccess();
+}
+
 function getWorksList() {
     let getJson = new XMLHttpRequest();
     getJson.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
-            let data = JSON.parse(this.responseText);
-            for (let i in data) {
-                let template = document.querySelector("#works-list");
-                let link = template.content.querySelector(".works-link"),
-                    title = template.content.querySelector(".works-title"),
-                    description = template.content.querySelector(".works-description"),
-                    language = template.content.querySelector(".repo-language"),
-                    date = template.content.querySelector(".repo-updated-date");
-
-                link.href = data[i].html_url;
-                title.innerText = data[i].name;
-                description.innerText = data[i].description;
-                language.innerText = data[i].language;
-                date.innerText = data[i].updated_at.slice(0, 4) + " 年 " + data[i].updated_at.slice(5, 7) + " 月";
-
-                let list = document.querySelector("#list"),
-                    clone = document.importNode(template.content, true);
-                list.appendChild(clone);
-            }
-            statistics.innerText = data.length + " 个作品";
-            getSuccess();
+            worksData = JSON.parse(this.responseText);
         }
     }
     getJson.open("GET", "https://api.github.com/users/Lifeni/repos" + accessToken, true);
     getJson.send();
+}
+function setWorksList() {
+    for (let i in worksData) {
+        let template = document.querySelector("#works-list");
+        let link = template.content.querySelector(".works-link"),
+            title = template.content.querySelector(".works-title"),
+            description = template.content.querySelector(".works-description"),
+            language = template.content.querySelector(".repo-language"),
+            date = template.content.querySelector(".repo-updated-date");
+
+        link.href = worksData[i].html_url;
+        title.innerText = worksData[i].name;
+        description.innerText = worksData[i].description;
+        language.innerText = worksData[i].language;
+        date.innerText = worksData[i].updated_at.slice(0, 4) + " 年 " + worksData[i].updated_at.slice(5, 7) + " 月";
+
+        let list = document.querySelector("#list"),
+            clone = document.importNode(template.content, true);
+        list.appendChild(clone);
+    }
+    statistics.innerText = worksData.length + " 个作品";
+    getSuccess();
 }
 
 function changeWallpaper() {
