@@ -1,68 +1,61 @@
 <!DOCTYPE html>
 <html lang="zh-hans">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="author" content="Lifeni">
-    <meta name="description" content="这是一个个人网站。">
-    <meta name="robots" content="none">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Lifeni">
+        <meta name="description" content="这是一个个人网站。">
+        <meta name="robots" content="none">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+        <script>
+            console.log("个人网站，仅用于学习交流用途。");
+        </script>
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:400,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400i,700i&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./static/css/main.css">
+        <link rel="stylesheet" href="./static/css/animation.css">
+        <title>Lifeni</title>
+    </head>
 
-    <link rel="icon" type="image/png" sizes="128x128" href="/favicon-128x128.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="stylesheet" href="/css/main.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:500&display=swap" rel="stylesheet">
-    <script>
-        console.log("个人网站，仅用于学习交流用途。");
-    </script>
-
-    <title>Lifeni</title>
-</head>
-
-<body>
-    <div class="container" id="container">
-        <header>
-            <button class="header-title">Lifeni</button>
-            <nav>
-                <button class="nav-button" id="notes-button">笔记</button>
-                <button class="nav-button" id="works-button">作品</button>
-                <div class="directory" id="notes-directory"> </div>
-                <div class="directory" id="works-directory"> </div>
-            </nav>
-        </header>
-
-        <main>
-            <div class="loading">
-                <div class="loading-animation"></div>
+    <body>
+        <div class="container">
+            <div class="background"></div>
+            <div class="logo">Lifeni</div>
+            <div class="main">
+                <div class="loading">
+                    <svg viewBox="25 25 50 50">
+                        <circle cx="50" cy="50" r="20"></circle>
+                    </svg>
+                </div>
+                <div class="nav">
+                    <button class="nav-link nav-link-current">文章</button>
+                    <button class="nav-link">作品</button>
+                    <button class="nav-link">喜欢</button>
+                </div>
+                <div class="content" id="list"></div>
+                <template class="template" id="article-list">
+                    <a href="" class="article-link" target="_blank">
+                        <span class="article-title"></span>
+                        <span class="article-date"></span>
+                    </a>
+                </template>
+                <template class="template" id="works-list">
+                    <a href="" class="works-link" target="_blank">
+                        <div class="works-info">
+                            <span class="works-title"></span>
+                            <span class="works-description"></span>
+                        </div>
+                        <div class="repo-info">
+                            <span class="repo-language"></span>
+                            <span class="repo-updated-date"></span>
+                        </div>
+                    </a>
+                </template>
+                <div class="statistics"></div>
             </div>
-            <div class="content" id="notes">
-                <!-- 由 JavaScript 生成 -->
-            </div>
-            <div class="content" id="works">
-                <!-- 由 JavaScript 生成 -->
-            </div>
+        </div>
 
-        </main>
-
-        <footer>
-            <address>
-                <a href="https://github.com/Lifeni" class="address-link" id="link-github" title="@Lifeni">
-                    <img src="/image/github-logo.svg" alt="Github" class="address-icon">
-                </a>
-                <a href="mailto:liangfengning@foxmail.com" class="address-link" id="link-mail"
-                    title="liangfengning@foxmail.com">
-                    <img src="/image/mail.svg" alt="Mail" class="address-icon">
-                </a>
-            </address>
-            <div class="footer-link-space">
-                <a href="https://github.com/Lifeni/lifeni.top/blob/master/README.md" class="footer-link">关于这个网站</a>
-                <a href="http://www.miitbeian.gov.cn/" class="footer-link" target="_blank"
-                    title="鲁ICP备19006085号">鲁ICP备19006085号</a>
-            </div>
-        </footer>
-    </div>
-    <script src="/javascript/main.js"></script>
-</body>
+        <script src="./static/javascript/main.js"></script>
+    </body>
 
 </html>
