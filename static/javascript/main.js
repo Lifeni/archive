@@ -80,7 +80,7 @@ function showArticle() {
             }, 200);
         }
     }
-    getJSON.open("GET", "https://api.lifeni.top/api", true);
+    getJSON.open("GET", "https://api.lifeni.top/article", true);
     getJSON.send();
 }
 
