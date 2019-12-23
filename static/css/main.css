@@ -1,3 +1,15 @@
+@font-face {
+    font-family: "Open Sans";
+    src: url(../font/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Open Sans Italic";
+    src: url(../font/OpenSans-Italic.ttf);
+    font-display: auto;
+    font-style: italic;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,224 +21,317 @@ body {
     width: 100%;
     height: auto;
     min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+html {
+    overflow-y: overlay;
+}
+
+a {
+    transition: all .4s;
+}
+
+a:hover {
+    background-color: rgba(238, 238, 238, 1);
+}
+
+a:active {
+    background-color: rgba(224, 224, 224, 1);
 }
 
 .container {
+    position: relative;
     width: 100%;
     height: auto;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(238, 238, 238, 1);
-    /* filter: invert(1); */
+    background-color: rgba(245, 245, 245, 1);
+    font-family: 'Open Sans', sans-serif;
 }
 
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
+.nav {
+    position: relative;
+    z-index: 10;
     width: 100%;
-    height: 100vh;
-    opacity: 0;
-    background-image: url("../image/wallpaper.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: all .2s;
+    height: 0;
+    box-shadow: inset 0 0 16px rgba(192, 192, 192, 1);
+    background-color: rgba(224, 224, 224, 1);
+    transition: all 1s;
+}
+
+.header {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 50vh;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: all 1s;
 }
 
 .logo {
     position: relative;
-    z-index: 10;
-    width: 100%;
-    height: 20vh;
-    min-height: 100px;
-    margin: 0;
+    width: auto;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 32px;
-    font-family: 'Open Sans', sans-serif;
+    font-size: 36px;
+    font-family: 'Open Sans Italic', sans-serif;
     font-style: italic;
-    font-weight: bold;
     color: black;
     background-color: transparent;
     user-select: none;
+    -moz-user-select: none;
+    cursor: pointer;
+    transition: all .6s;
+}
+
+.logo:hover {
+    text-decoration: underline;
+}
+
+.music {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    opacity: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans Italic', sans-serif;
+    font-style: italic;
+    transition: all .4s .6s;
+}
+
+.up,
+.middle,
+.down {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.music .title {
+    margin: 8px;
+    font-size: 36px;
+}
+
+.music .singer {
+    font-size: 24px;
+}
+
+.music .line {
+    width: 100%;
+    height: 2px;
+    margin: 48px 0;
+    background-color: rgba(189, 189, 189, 1);
+}
+
+.music .progress {
+    width: 0;
+    height: 2px;
+    background-color: black;
+}
+
+.music .play {
+    margin: 8px;
+    padding: 8px 16px;
+    border: none;
+    font-size: 28px;
+    font-family: 'Open Sans Italic', sans-serif;
+    font-style: italic;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+.music .play:active ,
+.music .play:hover {
+    text-decoration: underline;
 }
 
 .main {
     position: relative;
+    z-index: 10;
     width: 94%;
     min-width: 300px;
-    max-width: 640px;
+    max-width: 680px;
     height: auto;
-    min-height: 80vh;
-    background-color: rgba(255, 255, 255, .8);
+    min-height: 50vh;
+    padding: 8px;
+    background-color: white;
     border: 12px solid transparent;
-    border-bottom: none;
     border-radius: 4px 4px 0 0;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 0 24px rgba(238, 238, 238, 1);
+    transition: all 1s;
 }
 
-.nav {
-    height: 72px;
-    padding: 8px 8px 12px 8px;
-    display: flex;
-    align-items: center;
-}
-
-.nav-link {
-    padding: 8px 12px;
-    border: none;
-    font-family: 'Noto Sans SC', sans-serif;
-    font-size: 24px;
-    color: black;
-    text-decoration: none;
-    background-color: transparent;
-    cursor: pointer;
-    overflow: hidden;
-    white-space: nowrap;
-    transition: all .2s;
-    transform: scale(.9);
-    outline: none;
-}
-
-.nav-link-current {
-    font-weight: bold;
-    transform: scale(1);
-}
-
-.content {
+.list {
     width: 100%;
     height: auto;
-    padding: 0 8px;
+    display: none;
+    opacity: 0;
+    transition: all .4s;
 }
 
-.article-link,
-.works-link {
+.list .link {
     position: relative;
     width: 100%;
     height: auto;
-    margin: 8px 0;
-    padding: 16px 24px;
+    margin: 0;
+    padding: 12px 24px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    font-family: 'Noto Sans SC', sans-serif;
     text-decoration: none;
-    background-color: white;
-    border: 1px solid rgba(238, 238, 238, 1);
     border-radius: 2px;
     transition: all .2s;
 }
 
-.article-link:hover,
-.works-link:hover {
-    background-color: rgba(255, 255, 255, .5);
-    border: 1px solid rgba(158, 158, 158, 1);
+.list .link:hover .date,
+.list .link:hover .keyword {
+    background-color: transparent;
 }
 
-.article-title {
-    font-size: 20px;
-    color: black;
+.list .left,
+.list .right {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.article-date {
-    display: none;
-    margin: 0 0 0 12px;
-    font-size: 16px;
-    color: rgba(158, 158, 158, 1);
+.list .left {
+    margin: 0 8px 0 0;
+    align-items: flex-start;
+    overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
-.works-title {
-    padding: 4px 0;
-    font-size: 24px;
-    font-family: 'Open Sans', sans-serif;
-    color: black;
-}
-
-.works-description {
-    padding: 4px 0;
-    font-size: 18px;
-    color: black;
-}
-
-.repo-info,
-.works-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: rgba(158, 158, 158, 1);
-    font-size: 16px;
-}
-
-.repo-info {
+.list .right {
     align-items: flex-end;
-
 }
 
-.works-info {
-    align-items: flex-start;
-}
-
-.repo-language,
-.repo-updated-date {
-    margin: 4px 0;
-}
-
-.statistics {
+.list .title {
     width: 100%;
-    height: 64px;
-    margin: 0 0 8px 0;
+    padding: 4px 0;
+    font-size: 20px;
+    color: black;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.list .description {
+    width: 100%;
+    padding: 4px 0;
+    font-size: 16px;
+    color: black;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.list .date,
+.list .keyword {
+    margin: 2px 0;
+    padding: 4px 8px;
+    font-size: 16px;
+    color: rgba(158, 158, 158, 1);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-radius: 2px;
+    background-color: rgba(245, 245, 245, 1);
+    font-family: 'consolas', 'Courier New', Courier, monospace;
+    transition: all .4s;
+}
+
+.loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: black;
-    font-size: 18px;
-    font-family: 'Noto Sans SC', sans-serif;
-    text-align: center;
+    background-color: transparent;
+    transition: all .2s;
 }
 
-@media screen and (max-width:400px) {
-    .nav {
-        justify-content: center;
-    }
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+    height: 10vh;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer .left,
+.footer .right {
+    padding: 16px 28px;
+}
+
+.footer .link {
+    padding: 8px 12px;
+    border-radius: 2px;
+    font-size: 14px;
+    color: rgba(158, 158, 158, 1);
+    text-decoration: none;
 }
 
 @media screen and (max-width:560px) {
     .main {
         width: 100%;
+        padding: 0 0 72px 0;
         border: 8px solid transparent;
-        border-bottom: none;
     }
 
-    .content {
+    .list {
         padding: 0;
     }
 
-    .works-link {
-        flex-direction: column;
+    .list .title {
+        font-size: 18px;
     }
 
-    .works-info {
-        width: 100%;
-        align-items: flex-start;
+    .list .description {
+        font-size: 14px;
     }
 
-    .repo-info {
-        width: 100%;
-        flex-direction: row;
-        justify-content: flex-start;
+    .list .date,
+    .list .keyword {
+        font-size: 14px;
     }
 
-    .repo-language,
-    .repo-updated-date {
-        margin: 8px 16px 8px 0;
+    .footer {
+        z-index: 15;
+        justify-content: center;
+    }
+
+    .footer .left,
+    .footer .right {
+        padding: 16px 0;
     }
 }

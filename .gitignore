@@ -1,6 +1,4 @@
 
 *.code-workspace
 /.vscode
-
-dev.txt
-.vscode/launch.json
+/server/node_modules

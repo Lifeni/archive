@@ -2,7 +2,7 @@
 <html lang="zh-hans">
 
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
         <meta name="author" content="Lifeni">
         <meta name="description" content="这是一个个人网站。">
         <meta name="robots" content="none">
@@ -10,8 +10,6 @@
         <script>
             console.log("个人网站，仅用于学习交流用途。");
         </script>
-        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400i,700i&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./static/css/main.css">
         <link rel="stylesheet" href="./static/css/animation.css">
         <title>Lifeni</title>
@@ -19,42 +17,59 @@
 
     <body>
         <div class="container">
-            <div class="background"></div>
-            <div class="logo">LIFENI</div>
+            <div class="nav"></div>
+            <div class="header">
+                <div class="logo">LIFENI</div>
+                <div class="music">
+                    <audio id="audio" src="http://q2x281nlc.bkt.clouddn.com/Aimer - Black Bird.mp3" preload="none">Aimer - Black
+                        Bird</audio>
+                    <div class="up">
+                        <span class="title">Black Bird</span>
+                        <span class="singer">Aimer</span>
+                    </div>
+                    <div class="middle">
+                        <div class="line">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+                    <div class="down">
+                        <button class="play">PLAY</button>
+                    </div>
+                </div>
+            </div>
             <div class="main">
                 <div class="loading">
                     <svg viewBox="25 25 50 50">
                         <circle cx="50" cy="50" r="20"></circle>
                     </svg>
                 </div>
-                <div class="nav">
-                    <button class="nav-link nav-link-current">文章</button>
-                    <button class="nav-link">作品</button>
-                    <!-- <button class="nav-link">喜欢</button> -->
+                <div class="list" id="list"></div>
+                <template class="template" id="article">
+                    <a href="" class="link">
+                        <div class="left">
+                            <span class="title"></span>
+                            <span class="description"></span>
+                        </div>
+                        <div class="right">
+                            <span class="date"></span>
+                            <span class="keyword"></span>
+                        </div>
+                    </a>
+                </template>
+            </div>
+            <div class="content">
+                <article class="markdown-body"></article>
+            </div>
+            <div class="footer">
+                <div class="left">
+                    <a href="https://me.lifeni.top" class="link">关于我</a>
+                    <a href="https://api.lifeni.top" class="link">API</a>
                 </div>
-                <div class="content" id="list"></div>
-                <template class="template" id="article-list">
-                    <a href="" class="article-link" target="_blank">
-                        <span class="article-title"></span>
-                        <span class="article-date"></span>
-                    </a>
-                </template>
-                <template class="template" id="works-list">
-                    <a href="" class="works-link" target="_blank">
-                        <div class="works-info">
-                            <span class="works-title"></span>
-                            <span class="works-description"></span>
-                        </div>
-                        <div class="repo-info">
-                            <span class="repo-language"></span>
-                            <span class="repo-updated-date"></span>
-                        </div>
-                    </a>
-                </template>
-                <div class="statistics"></div>
+                <div class="right">
+                    <a href="http://www.beian.miit.gov.cn/" class="link">鲁ICP备19006085号</a>
+                </div>
             </div>
         </div>
-
         <script src="./static/javascript/main.js"></script>
     </body>
 

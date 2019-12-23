@@ -1,6 +1,6 @@
-# lifeni.top
+# 一个网站
 
-本文档最后更新于 2019.12.9
+应该在 https://lifeni.top
 
 ## 关于这个网站
 
@@ -13,3 +13,4 @@
 ## 联系方式
 
 邮箱： liangfengning@foxmail.com
+
