@@ -1,16 +1,7 @@
-# 一个网站
+曾经的个人网站的存档，开始于 2019 年 1 月 29 日，截止于 2019 年 12 月 23 日。
 
-应该在 https://lifeni.top
+算是早期写网站的一些尝试，留个纪念。
 
-## 关于这个网站
+部分截图可以在 https://lifeni.life/article/this-website 这篇文章里找到。
 
-没啥好说的。
-
-网站仅供学习交流使用。
-
-如有侵权请告知。
-
-## 联系方式
-
-邮箱： liangfengning@foxmail.com
-
+之后的网站代码转移到了 [Blog](https://github.com/Lifeni-Space/Blog) 这个仓库，也可以去看看。
