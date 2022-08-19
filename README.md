@@ -4,4 +4,4 @@
 
 部分截图可以在 https://lifeni.life/article/this-website 这篇文章里找到。
 
-之后的网站代码转移到了 [Blog](https://github.com/Lifeni-Space/Blog) 这个仓库，也可以去看看。
+之后的网站代码转移到了 [Blog](https://github.com/Lifeni/blog) 这个仓库，也可以去看看。
